@@ -1,0 +1,169 @@
+/* ==========================================================================
+   CRUMB & TABLE - RESPONSIVE STYLES
+   Breakpoints: 320px, 375px, 576px, 768px, 992px, 1200px, 1400px+
+   ========================================================================== */
+
+/* --- Mobile Specific Refinements (< 768px) --- */
+@media (max-width: 767.98px) {
+  :root {
+    --navbar-height: 68px;
+  }
+
+  /* Prevent any horizontal body overflow */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Typography scale adjustment */
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+
+  /* Hero search form on mobile */
+  .hero-search-wrapper {
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .hero-search-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .hero-search-field, .hero-location-select, .btn-hero-submit {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  /* Venue profile hero */
+  .venue-hero-gallery {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  .venue-hero-gallery .gallery-secondary {
+    display: none !important;
+  }
+
+  /* Map Explorer layout on mobile */
+  .map-layout-wrapper {
+    flex-direction: column-reverse !important;
+  }
+
+  .map-list-sidebar {
+    width: 100% !important;
+    height: 60vh !important;
+    max-height: 60vh !important;
+  }
+
+  .map-viewport-panel {
+    width: 100% !important;
+    height: 40vh !important;
+    min-height: 280px !important;
+  }
+
+  /* Mobile floating map toggle button */
+  .mobile-map-toggle-btn {
+    display: inline-flex !important;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1040;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Menu Item cards stacked */
+  .menu-item-card {
+    flex-direction: column;
+  }
+
+  .menu-item-img {
+    width: 100%;
+    height: 140px;
+  }
+
+  /* Venue action bar stick to bottom */
+  .venue-action-bar-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-medium);
+    padding: 0.85rem 1rem;
+    z-index: 1020;
+    display: flex;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Footer adjustments */
+  .site-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* --- Small Phones (< 380px: 320px - 375px) --- */
+@media (max-width: 380px) {
+  .navbar-brand-custom {
+    font-size: 1.25rem;
+  }
+
+  .btn-nav-search {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .kbd-badge {
+    display: none;
+  }
+
+  .btn-primary-custom, .btn-secondary-custom {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
+  }
+
+  .venue-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* --- Tablet / Medium Devices (768px to 991.98px) --- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-search-wrapper {
+    max-width: 100%;
+  }
+
+  .map-list-sidebar {
+    width: 380px !important;
+  }
+}
+
+/* --- Desktop & Ultra-wide (> 992px) --- */
+@media (min-width: 992px) {
+  .mobile-map-toggle-btn {
+    display: none !important;
+  }
+
+  .venue-action-bar-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container, .container-lg, .container-xl, .container-xxl {
+    max-width: 1440px;
+  }
+}

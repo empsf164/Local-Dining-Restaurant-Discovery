@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 7 Flakiest, Butteriest Croissants to Try This Week — Crumb & Table</title>
+  <meta name="description" content="A butter-lover's pursuit of golden honeycomb interiors and shatteringly crisp pastry layers across Central City.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+
+  <style>
+    .editorial-callout {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-terracotta);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .lead-paragraph {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="discover.html">Discover</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="map.html">Map</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link-custom active" href="guides.html">Guides</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="saved.html">Saved</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="about.html">About</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
+            </button>
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Offcanvas -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="discover.html" class="mobile-nav-link">Discover Places</a>
+      <a href="guides.html" class="mobile-nav-link active">Food Guides</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <hr class="my-4 border-subtle">
+      <div class="mobile-auth-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN ARTICLE CONTENT ==================== -->
+  <main class="py-4">
+    <div class="container" style="max-width: 860px;">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="guides.html">Food Guides</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Croissant Guide</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="mb-4">
+        <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-3" id="guideCategoryBadge">Bakery Guides</span>
+        <h1 class="display-4 font-serif fw-bold mb-3" id="guideTitle">The 7 Flakiest, Butteriest Croissants to Try This Week</h1>
+        <p class="fs-5 text-secondary mb-4 leading-relaxed" id="guideSubtitle">
+          A butter-lover's pursuit of golden honeycomb interiors and shatteringly crisp pastry layers across Central City's top French patisseries.
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center py-3 border-top border-bottom border-subtle flex-wrap gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Claire Vance" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+            <div>
+              <div class="fw-bold">Claire Vance</div>
+              <div class="small text-muted">Pastry Editor · Published October 3, 2026 · 5 min read</div>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary-custom py-2 px-3" data-save-guide="best-croissants-guide" data-guide-title="The 7 Flakiest Croissants">
+            <i class="bi bi-bookmark"></i> Save Article
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Featured Image -->
+      <div class="ratio ratio-16x9 rounded-5 overflow-hidden shadow-md mb-5 border border-subtle">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop" alt="Fresh baked croissant on marble counter" class="w-100 h-100 object-fit-cover" id="guideHeroImg">
+      </div>
+
+      <!-- Article Content Body -->
+      <article class="article-body mb-5" id="guideContentContainer">
+        <p class="lead-paragraph">
+          There is an unmistakable sound in the early morning at our city's finest bakeries: the delicate, crisp crackle of a freshly baked croissant giving way under fingertips. Inside, a warm, buttery steam escapes, carrying the caramelized aroma of cultured butter and slow-fermented dough.
+        </p>
+
+        <h3>1. The Golden Standard: Maison Crème Patisserie</h3>
+        <p>Chef Julien Laurent doesn't take shortcuts. Using AOP Isigny Sainte-Mère cultured butter imported directly from Normandy, the lamination process at Maison Crème takes three full days of temperature-controlled folding and resting. The result is an open, translucent honeycomb crumb and an exterior that flakes like fine autumn leaves.</p>
+
+        <!-- Inline Featured Venue Recommendation Card -->
+        <div class="p-4 bg-surface rounded-4 border border-medium my-4 shadow-sm">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=200&auto=format&fit=crop" alt="Maison Crème" class="rounded-3" style="width: 72px; height: 72px; object-fit: cover;">
+            <div class="flex-grow-1 min-w-0">
+              <div class="small fw-bold text-terracotta text-uppercase">Featured Spot</div>
+              <h4 class="font-serif fw-bold mb-1 fs-5">Maison Crème Patisserie</h4>
+              <div class="small text-muted">Arts Quarter · Open Now · <i class="bi bi-star-fill text-warning"></i> 4.9 (342 reviews)</div>
+            </div>
+            <a href="venue-details.html?id=maison-creme" class="btn btn-sm btn-primary-custom py-2 px-3 text-nowrap">View Place</a>
+          </div>
+        </div>
+
+        <div class="editorial-callout">
+          <strong><i class="bi bi-lightbulb-fill text-warning me-1"></i> Editor's Morning Tip:</strong> Arrive between 8:00 AM and 9:00 AM when the morning batch hits the display counter still warm from the deck oven. Pair with their Ethiopian single-origin flat white.
+        </div>
+
+        <h3>2. The Nordic Twist: Fika & Botanica</h3>
+        <p>While known for cardamom knots, Fika & Botanica introduces an inventive sourdough croissant fermented with wild elderflower yeast. The gentle acidity perfectly cuts through the rich butter profile, giving an unforgettable depth of flavor.</p>
+
+        <!-- Inline Featured Venue Recommendation Card -->
+        <div class="p-4 bg-surface rounded-4 border border-medium my-4 shadow-sm">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=200&auto=format&fit=crop" alt="Fika & Botanica" class="rounded-3" style="width: 72px; height: 72px; object-fit: cover;">
+            <div class="flex-grow-1 min-w-0">
+              <div class="small fw-bold text-terracotta text-uppercase">Featured Spot</div>
+              <h4 class="font-serif fw-bold mb-1 fs-5">Fika & Botanica Coffee Bakery</h4>
+              <div class="small text-muted">Botanical Quarter · Open Now · <i class="bi bi-star-fill text-warning"></i> 4.78</div>
+            </div>
+            <a href="venue-details.html?id=fika-botanica" class="btn btn-sm btn-primary-custom py-2 px-3 text-nowrap">View Place</a>
+          </div>
+        </div>
+
+        <h3>3. Twice-Baked Almond Elegance: Petite Tartine</h3>
+        <p>If you prefer an indulgent afternoon treat, Petite Tartine takes day-one croissants, dips them in Madagascar vanilla syrup, fills them with velvety roasted almond frangipane, and bakes them a second time until golden with toasted slivered almonds.</p>
+      </article>
+
+      <!-- Share & Author Section -->
+      <div class="p-4 bg-surface rounded-4 border border-subtle mb-5 d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div class="d-flex align-items-center gap-2">
+          <span class="small fw-bold text-muted">Share Guide:</span>
+          <button class="social-icon-btn" onclick="navigator.clipboard.writeText(window.location.href); if(window.showToast) window.showToast('Article link copied to clipboard!', 'bi-link-45deg');" title="Copy Link"><i class="bi bi-link-45deg"></i></button>
+          <a href="#" class="social-icon-btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon-btn"><i class="bi bi-facebook"></i></a>
+        </div>
+        <a href="guides.html" class="btn btn-secondary-custom btn-sm">&larr; Back to All Guides</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand-custom" href="index.html">
+            <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+            <span>CRUMB & TABLE</span>
+          </a>
+          <p class="footer-brand-text">“Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="discover.html">All Places</a></li>
+            <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
+            <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="map.html">Map</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="guides.html">Food Guides</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Crumb & Table Discovery Platform. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search></button>
+      </div>
+      <div class="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crumb & Table — Discover Something Delicious Around You</title>
+  <meta name="description" content="Discover artisanal bakeries, French patisseries, dessert lounges, and neighborhood bread studios worth visiting. Your guide to memorable local food.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Crumb & Table — Local Dining & Bakery Discovery">
+  <meta property="og:description" content="Discover artisanal bakeries, French patisseries, dessert lounges, and neighborhood bread studios worth visiting.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop">
+
+  <!-- Bootstrap 5 & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Instant Theme Initializer -->
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <!-- Brand Logo -->
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls (Search + Theme + Hamburger) -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Dark Mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search">
+            <i class="bi bi-search"></i>
+          </button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item">
+              <a class="nav-link-custom active" href="index.html">Home</a>
+            </li>
+
+            <!-- Discover Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link-custom dropdown-toggle" href="discover.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Discover <i class="bi bi-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-custom">
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=trending"><i class="bi bi-fire"></i> Trending Nearby</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=new"><i class="bi bi-sparkles"></i> New Places</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=rated"><i class="bi bi-star-fill"></i> Highly Rated</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=editors"><i class="bi bi-award-fill"></i> Editor's Picks</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=open"><i class="bi bi-clock-fill"></i> Open Now</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=newly-listed"><i class="bi bi-pin-map-fill"></i> Newly Listed</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=popular"><i class="bi bi-graph-up-arrow"></i> Popular This Week</a></li>
+              </ul>
+            </li>
+
+            <!-- Map -->
+            <li class="nav-item">
+              <a class="nav-link-custom" href="map.html">Map</a>
+            </li>
+
+            <!-- Categories Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link-custom dropdown-toggle" href="categories.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories <i class="bi bi-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-custom">
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=bakeries"><i class="bi bi-shop"></i> Bakeries</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=patisseries"><i class="bi bi-cup-hot"></i> Patisseries</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=cake-shops"><i class="bi bi-cake2"></i> Cake Shops</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=dessert-shops"><i class="bi bi-magic"></i> Dessert Shops</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=chocolatiers"><i class="bi bi-gem"></i> Chocolatiers</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=artisan-bread"><i class="bi bi-basket2"></i> Artisan Bread</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=coffee-bakery"><i class="bi bi-cup-straw"></i> Coffee & Bakery</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=confectionery"><i class="bi bi-gift"></i> Confectionery</a></li>
+                <li><hr class="dropdown-divider my-1"></li>
+                <li><a class="dropdown-item dropdown-item-custom fw-bold text-terracotta" href="categories.html">View All Categories &rarr;</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link-custom" href="menu.html">Menu</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link-custom" href="guides.html">Guides</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
+                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link-custom" href="about.html">About</a>
+            </li>
+          </ul>
+
+          <!-- Right Action Items -->
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i>
+              <span>Search places...</span>
+              <span class="kbd-badge">/</span>
+            </button>
+
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+
+            <a href="discover.html" class="btn-primary-custom text-nowrap">
+              <i class="bi bi-compass"></i> Explore Nearby
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== MOBILE OFFCANVAS DRAWER ==================== -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold" id="mobileMenuLabel">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Search inside mobile -->
+      <div class="mb-4">
+        <button class="btn btn-secondary-custom w-100 justify-content-between" data-open-search data-bs-dismiss="offcanvas">
+          <span><i class="bi bi-search me-2"></i> Search discoveries...</span>
+          <span class="kbd-badge">/</span>
+        </button>
+      </div>
+
+      <!-- Navigation Accordion -->
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+
+      <div>
+        <button class="mobile-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mobileDiscoverCollapse" aria-expanded="false">
+          <span>Discover</span> <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="collapse mobile-sub-menu" id="mobileDiscoverCollapse">
+          <a href="discover.html?filter=trending" class="mobile-sub-link">Trending Nearby</a>
+          <a href="discover.html?filter=new" class="mobile-sub-link">New Places</a>
+          <a href="discover.html?filter=rated" class="mobile-sub-link">Highly Rated</a>
+          <a href="discover.html?filter=editors" class="mobile-sub-link">Editor's Picks</a>
+          <a href="discover.html?filter=open" class="mobile-sub-link">Open Now</a>
+          <a href="discover.html" class="mobile-sub-link fw-bold text-terracotta">All Discoveries &rarr;</a>
+        </div>
+      </div>
+
+      <a href="map.html" class="mobile-nav-link">Local Map Explorer</a>
+
+      <div>
+        <button class="mobile-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategoriesCollapse" aria-expanded="false">
+          <span>Categories</span> <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="collapse mobile-sub-menu" id="mobileCategoriesCollapse">
+          <a href="category-details.html?category=bakeries" class="mobile-sub-link">Bakeries</a>
+          <a href="category-details.html?category=patisseries" class="mobile-sub-link">Patisseries</a>
+          <a href="category-details.html?category=cake-shops" class="mobile-sub-link">Cake Shops</a>
+          <a href="category-details.html?category=dessert-shops" class="mobile-sub-link">Dessert Shops</a>
+          <a href="category-details.html?category=chocolatiers" class="mobile-sub-link">Chocolatiers</a>
+          <a href="category-details.html?category=artisan-bread" class="mobile-sub-link">Artisan Bread</a>
+          <a href="category-details.html?category=coffee-bakery" class="mobile-sub-link">Coffee & Bakery</a>
+          <a href="categories.html" class="mobile-sub-link fw-bold text-terracotta">All Categories &rarr;</a>
+        </div>
+      </div>
+
+      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
+      <a href="guides.html" class="mobile-nav-link">Food Guides</a>
+      <a href="saved.html" class="mobile-nav-link d-flex justify-content-between align-items-center">
+        <span>Saved Places</span>
+        <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none;">0</span>
+      </a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="contact.html" class="mobile-nav-link">Contact & List Bakery</a>
+
+      <hr class="my-4 border-subtle">
+
+      <!-- Auth actions inside drawer -->
+      <div class="mobile-auth-container">
+        <!-- Rendered by auth.js -->
+      </div>
+
+      <div class="mt-3">
+        <a href="discover.html" class="btn btn-primary-custom w-100 py-3">
+          <i class="bi bi-compass"></i> Explore Nearby
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="py-lg-6 py-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 80% 20%, var(--accent-warm-tint) 0%, transparent 60%);">
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+          <!-- Text & Search Col -->
+          <div class="col-lg-6 fade-in-up">
+            <span class="badge bg-secondary text-terracotta py-2 px-3 rounded-pill fw-bold text-uppercase letter-spacing-1 mb-3">
+              <i class="bi bi-stars"></i> Curated Bakery & Confectionery Guide
+            </span>
+            <h1 class="display-4 fw-bold font-serif mb-3" style="line-height: 1.15;">
+              Find Your Next <span class="text-terracotta fst-italic">Favorite Place.</span>
+            </h1>
+            <p class="fs-5 text-secondary mb-4" style="line-height: 1.6;">
+              Discover bakeries, patisseries, dessert spots and neighborhood food gems worth visiting.
+            </p>
+
+            <!-- Hero Search Bar (Glassmorphic) -->
+            <div class="hero-search-wrapper glass-panel mb-4">
+              <form class="hero-search-form" id="heroSearchForm">
+                <div class="hero-search-field">
+                  <i class="bi bi-search"></i>
+                  <input type="text" class="hero-search-input" id="heroSearchInput" placeholder="Bakery, croissant, cake, coffee…" aria-label="Craving search">
+                </div>
+                <div class="hero-search-field hero-location-select-wrap">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <select class="hero-location-select" id="heroLocationSelect" aria-label="Select location">
+                    <option value="near-me">Near me (Current Location)</option>
+                    <option value="arts-quarter">Arts Quarter</option>
+                    <option value="old-foundry">Old Foundry District</option>
+                    <option value="golden-triangle">Golden Triangle</option>
+                    <option value="westside-gardens">Westside Gardens</option>
+                    <option value="botanical-quarter">Botanical Quarter</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary-custom px-4 py-2 text-nowrap btn-hero-submit">
+                  <span>Discover</span> <i class="bi bi-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- Quick tags -->
+            <div class="d-flex flex-wrap align-items-center gap-2 text-secondary small">
+              <span class="fw-bold">Popular:</span>
+              <a href="discover.html?q=croissant" class="filter-chip py-1 px-3">Croissants</a>
+              <a href="discover.html?q=sourdough" class="filter-chip py-1 px-3">Sourdough</a>
+              <a href="category-details.html?category=patisseries" class="filter-chip py-1 px-3">Patisseries</a>
+              <a href="category-details.html?category=cake-shops" class="filter-chip py-1 px-3">Basque Cheesecake</a>
+            </div>
+          </div>
+
+          <!-- Hero Image Mosaic Col -->
+          <div class="col-lg-6 fade-in-up">
+            <div class="position-relative">
+              <div class="ratio ratio-4x3 rounded-5 overflow-hidden shadow-xl border border-medium">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop" alt="Artisan bakery table with fresh sourdough and flaky croissants" class="w-100 h-100 object-fit-cover">
+              </div>
+
+              <!-- Floating Editorial Badge -->
+              <div class="position-absolute bottom-0 start-0 m-4 p-3 glass-panel rounded-4 shadow-lg d-none d-sm-flex align-items-center gap-3" style="max-width: 310px;">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=200&auto=format&fit=crop" alt="72-layer croissant" class="rounded-3" style="width: 54px; height: 54px; object-fit: cover;">
+                <div>
+                  <div class="small fw-bold text-terracotta text-uppercase">Trending This Week</div>
+                  <div class="fw-bold font-serif fs-6">Maison Crème Patisserie</div>
+                  <div class="small text-muted"><i class="bi bi-star-fill text-warning"></i> 4.9 · 0.8 km away</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TRENDING NEARBY -->
+    <section class="py-5 bg-surface border-top border-bottom border-subtle">
+      <div class="container py-lg-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+          <div>
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Local Gems</span>
+            <h2 class="fw-bold font-serif mb-1">Trending Nearby</h2>
+            <p class="text-secondary mb-0">Highest rated bakeries and confectioneries discovered by our neighborhood scouts.</p>
+          </div>
+          <a href="discover.html?filter=trending" class="btn btn-secondary-custom mt-3 mt-md-0">
+            View All Trending <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="row g-4" id="homeTrendingGrid">
+          <!-- Populated from VENUES_DATA -->
+          <div class="col-md-6 col-lg-4">
+            <div class="venue-card">
+              <div class="venue-card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Maison Crème Patisserie" class="venue-card-img">
+                <span class="venue-badge-pill">Editor's Choice</span>
+                <button class="venue-save-btn" data-save-venue="maison-creme" data-venue-name="Maison Crème Patisserie" title="Save Place">
+                  <i class="bi bi-bookmark"></i>
+                </button>
+              </div>
+              <div class="venue-card-body">
+                <div class="venue-category-row">
+                  <span class="venue-category-label">Patisserie</span>
+                  <span class="venue-price-indicator">₹₹₹</span>
+                </div>
+                <h3 class="venue-title"><a href="venue-details.html?id=maison-creme">Maison Crème</a></h3>
+                <p class="venue-description">French-inspired pastries, 72-layer butter croissants, and single-origin pour-overs.</p>
+                <div class="venue-meta-row">
+                  <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.9</span>
+                  <span class="status-badge open">Open until 9:00 PM</span>
+                  <span class="ms-auto text-muted"><i class="bi bi-geo-alt"></i> 0.8 km</span>
+                </div>
+                <div class="mt-3 pt-2">
+                  <a href="venue-details.html?id=maison-creme" class="btn btn-secondary-custom w-100 justify-content-center py-2">View Place</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="venue-card">
+              <div class="venue-card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=800&auto=format&fit=crop" alt="Flour & Heirloom Artisan Bakery" class="venue-card-img">
+                <span class="venue-badge-pill">Heritage Craft</span>
+                <button class="venue-save-btn" data-save-venue="flour-heirloom" data-venue-name="Flour & Heirloom Artisan Bakery" title="Save Place">
+                  <i class="bi bi-bookmark"></i>
+                </button>
+              </div>
+              <div class="venue-card-body">
+                <div class="venue-category-row">
+                  <span class="venue-category-label">Artisan Bread</span>
+                  <span class="venue-price-indicator">₹₹</span>
+                </div>
+                <h3 class="venue-title"><a href="venue-details.html?id=flour-heirloom">Flour & Heirloom</a></h3>
+                <p class="venue-description">Stoneground heritage sourdoughs, 36-hour cold ferment rustic boules & morning buns.</p>
+                <div class="venue-meta-row">
+                  <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.8</span>
+                  <span class="status-badge open">Open until 6:00 PM</span>
+                  <span class="ms-auto text-muted"><i class="bi bi-geo-alt"></i> 1.4 km</span>
+                </div>
+                <div class="mt-3 pt-2">
+                  <a href="venue-details.html?id=flour-heirloom" class="btn btn-secondary-custom w-100 justify-content-center py-2">View Place</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="venue-card">
+              <div class="venue-card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=800&auto=format&fit=crop" alt="L'Atelier du Cacao" class="venue-card-img">
+                <span class="venue-badge-pill">Master Chocolatier</span>
+                <button class="venue-save-btn" data-save-venue="l-atelier-cacao" data-venue-name="L'Atelier du Cacao" title="Save Place">
+                  <i class="bi bi-bookmark"></i>
+                </button>
+              </div>
+              <div class="venue-card-body">
+                <div class="venue-category-row">
+                  <span class="venue-category-label">Chocolatiers</span>
+                  <span class="venue-price-indicator">₹₹₹₹</span>
+                </div>
+                <h3 class="venue-title"><a href="venue-details.html?id=l-atelier-cacao">L'Atelier du Cacao</a></h3>
+                <p class="venue-description">Single-origin bean-to-bar chocolates, velvet sipping cocoa & dessert tasting flights.</p>
+                <div class="venue-meta-row">
+                  <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.95</span>
+                  <span class="status-badge open">Open until 11:00 PM</span>
+                  <span class="ms-auto text-muted"><i class="bi bi-geo-alt"></i> 2.1 km</span>
+                </div>
+                <div class="mt-3 pt-2">
+                  <a href="venue-details.html?id=l-atelier-cacao" class="btn btn-secondary-custom w-100 justify-content-center py-2">View Place</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EXPLORE BY CATEGORY -->
+    <section class="py-5">
+      <div class="container py-lg-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+          <div>
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Curated Categories</span>
+            <h2 class="fw-bold font-serif mb-1">Explore by Category</h2>
+            <p class="text-secondary mb-0">Browse specialized culinary traditions from viennoiserie to craft chocolate.</p>
+          </div>
+          <a href="categories.html" class="btn btn-secondary-custom mt-3 mt-md-0">
+            All Categories <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=bakeries" class="category-card">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Bakeries" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Bakeries</h3>
+                <span class="category-card-count">24 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=patisseries" class="category-card">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop" alt="Patisseries" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Patisseries</h3>
+                <span class="category-card-count">18 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=cake-shops" class="category-card">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Cake Shops" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Cakes</h3>
+                <span class="category-card-count">15 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=dessert-shops" class="category-card">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop" alt="Dessert Destinations" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Desserts</h3>
+                <span class="category-card-count">12 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=chocolatiers" class="category-card">
+              <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=600&auto=format&fit=crop" alt="Chocolatiers" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Chocolates</h3>
+                <span class="category-card-count">9 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=artisan-bread" class="category-card">
+              <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=600&auto=format&fit=crop" alt="Artisan Bread" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Artisan Bread</h3>
+                <span class="category-card-count">14 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=coffee-bakery" class="category-card">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=600&auto=format&fit=crop" alt="Coffee & Bakery" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Coffee & Bakery</h3>
+                <span class="category-card-count">22 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="category-details.html?category=confectionery" class="category-card">
+              <img src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=600&auto=format&fit=crop" alt="Confectionery" class="category-card-img" loading="lazy">
+              <div class="category-card-content">
+                <h3 class="category-card-title">Confectionery</h3>
+                <span class="category-card-count">8 Curated Places &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: EDITOR'S PICKS / GUIDES -->
+    <section class="py-5 bg-surface border-top border-bottom border-subtle">
+      <div class="container py-lg-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+          <div>
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Editorial Stories</span>
+            <h2 class="fw-bold font-serif mb-1">Editor's Picks & Local Guides</h2>
+            <p class="text-secondary mb-0">Deep dives into croissant technique, midnight dessert lounges, and secret bakeries.</p>
+          </div>
+          <a href="guides.html" class="btn btn-secondary-custom mt-3 mt-md-0">
+            Read All Guides <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="guide-card">
+              <div class="guide-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop" alt="The Best Croissants to Try This Week" class="guide-card-img" loading="lazy">
+              </div>
+              <div class="guide-card-body">
+                <span class="guide-meta">Bakery Guides · 5 min read</span>
+                <h3 class="guide-title"><a href="guide-details.html?slug=the-best-croissants-to-try-this-week">The 7 Flakiest, Butteriest Croissants to Try This Week</a></h3>
+                <p class="guide-excerpt">A butter-lover's pursuit of golden honeycomb interiors and shatteringly crisp pastry layers across the city.</p>
+                <div class="guide-author-row">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Claire Vance" class="guide-author-avatar">
+                  <div class="guide-author-info">
+                    <span class="guide-author-name">Claire Vance</span>
+                    <span>Pastry Editor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="guide-card">
+              <div class="guide-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="5 Dessert Places Worth the Detour" class="guide-card-img" loading="lazy">
+              </div>
+              <div class="guide-card-body">
+                <span class="guide-meta">Dessert Trails · 7 min read</span>
+                <h3 class="guide-title"><a href="guide-details.html?slug=5-dessert-places-worth-the-detour">5 Hidden Dessert Destinations Worth the Detour</a></h3>
+                <p class="guide-excerpt">From nocturnal chocolate salons to waterfront molecular dessert labs with stunning harbor views.</p>
+                <div class="guide-author-row">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Henri Delaunay" class="guide-author-avatar">
+                  <div class="guide-author-info">
+                    <span class="guide-author-name">Henri Delaunay</span>
+                    <span>Culinary Critic</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="guide-card">
+              <div class="guide-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Where to Find Beautiful Celebration Cakes" class="guide-card-img" loading="lazy">
+              </div>
+              <div class="guide-card-body">
+                <span class="guide-meta">Celebration Cakes · 6 min read</span>
+                <h3 class="guide-title"><a href="guide-details.html?slug=where-to-find-beautiful-celebration-cakes">Where to Find Show-Stopping Celebration Cakes</a></h3>
+                <p class="guide-excerpt">Artisanal studios redefining custom birthday tiers, Basque cheesecakes, and botanical wedding creations.</p>
+                <div class="guide-author-row">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" alt="Sonia Patel" class="guide-author-avatar">
+                  <div class="guide-author-info">
+                    <span class="guide-author-name">Sonia Patel</span>
+                    <span>Lifestyle & Food Stylist</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: DISCOVER ON THE MAP PREVIEW -->
+    <section class="py-5">
+      <div class="container py-lg-4">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-8">
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Interactive Exploration</span>
+            <h2 class="fw-bold font-serif mb-1">Discover on the Map</h2>
+            <p class="text-secondary mb-0">Locate nearby patisseries, coffee bakeries, and cake studios in your area.</p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="map.html" class="btn btn-primary-custom">
+              <i class="bi bi-map-fill"></i> Explore Full Map
+            </a>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- Mini Map Panel -->
+          <div class="col-lg-8">
+            <div class="position-relative rounded-4 overflow-hidden border border-medium shadow-sm" style="height: 420px;">
+              <div id="homeMiniMap" class="w-100 h-100"></div>
+              <div class="position-absolute bottom-0 start-0 m-3 z-3 glass-panel p-2 rounded-3 small">
+                <i class="bi bi-geo-alt-fill text-terracotta"></i> <strong>Central City Bakery District</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- List preview beside map -->
+          <div class="col-lg-4">
+            <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+              <div class="p-3 bg-surface rounded-4 border border-subtle d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=200&auto=format&fit=crop" alt="Maison Crème" class="rounded-3" style="width: 60px; height: 60px; object-fit: cover;">
+                <div class="flex-grow-1 min-w-0">
+                  <div class="fw-bold text-truncate">Maison Crème Patisserie</div>
+                  <div class="small text-muted">Arts Quarter · 0.8 km</div>
+                  <span class="rating-badge small mt-1"><i class="bi bi-star-fill"></i> 4.9</span>
+                </div>
+                <a href="venue-details.html?id=maison-creme" class="btn btn-sm btn-secondary-custom py-1 px-2"><i class="bi bi-chevron-right"></i></a>
+              </div>
+
+              <div class="p-3 bg-surface rounded-4 border border-subtle d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=200&auto=format&fit=crop" alt="Fika & Botanica" class="rounded-3" style="width: 60px; height: 60px; object-fit: cover;">
+                <div class="flex-grow-1 min-w-0">
+                  <div class="fw-bold text-truncate">Fika & Botanica</div>
+                  <div class="small text-muted">Botanical Quarter · 0.6 km</div>
+                  <span class="rating-badge small mt-1"><i class="bi bi-star-fill"></i> 4.78</span>
+                </div>
+                <a href="venue-details.html?id=fika-botanica" class="btn btn-sm btn-secondary-custom py-1 px-2"><i class="bi bi-chevron-right"></i></a>
+              </div>
+
+              <div class="p-3 bg-surface rounded-4 border border-subtle d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=200&auto=format&fit=crop" alt="The Velvet Crumb" class="rounded-3" style="width: 60px; height: 60px; object-fit: cover;">
+                <div class="flex-grow-1 min-w-0">
+                  <div class="fw-bold text-truncate">The Velvet Crumb Cake Studio</div>
+                  <div class="small text-muted">Westside Gardens · 1.9 km</div>
+                  <span class="rating-badge small mt-1"><i class="bi bi-star-fill"></i> 4.85</span>
+                </div>
+                <a href="venue-details.html?id=velvet-crumb" class="btn btn-sm btn-secondary-custom py-1 px-2"><i class="bi bi-chevron-right"></i></a>
+              </div>
+
+              <a href="map.html" class="btn btn-secondary-custom w-100 justify-content-center py-2">
+                Launch Full Map Explorer &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: POPULAR RIGHT NOW & NEWLY DISCOVERED TABS -->
+    <section class="py-5 bg-surface border-top border-bottom border-subtle">
+      <div class="container py-lg-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+          <div>
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Community Signals</span>
+            <h2 class="fw-bold font-serif mb-1">Popular Right Now</h2>
+            <p class="text-secondary small mb-0"><i class="bi bi-info-circle me-1"></i> Based on community saves, ratings, and recent discovery activity (Sample Demo Data).</p>
+          </div>
+
+          <ul class="nav nav-pills mt-3 mt-md-0" id="discoveryTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active rounded-pill px-4 py-2" id="popular-tab" data-bs-toggle="pill" data-bs-target="#popular-pane" type="button" role="tab">Most Popular</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link rounded-pill px-4 py-2 ms-2" id="newly-tab" data-bs-toggle="pill" data-bs-target="#newly-pane" type="button" role="tab">Newly Discovered</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="discoveryTabsContent">
+          <!-- Most Popular Pane -->
+          <div class="tab-pane fade show active" id="popular-pane" role="tabpanel" tabindex="0">
+            <div class="row g-4">
+              <div class="col-md-6 col-lg-3">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop" alt="Sweet Alchemy" class="venue-card-img" loading="lazy">
+                    <button class="venue-save-btn" data-save-venue="sweet-alchemy" data-venue-name="Sweet Alchemy"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Dessert Destination</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=sweet-alchemy">Sweet Alchemy</a></h4>
+                    <p class="venue-description">Avant-garde plated desserts & liquid nitrogen sorbet bar.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.88</span>
+                      <span class="ms-auto text-muted">2.8 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=600&auto=format&fit=crop" alt="Fika & Botanica" class="venue-card-img" loading="lazy">
+                    <button class="venue-save-btn" data-save-venue="fika-botanica" data-venue-name="Fika & Botanica"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Coffee & Bakery</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=fika-botanica">Fika & Botanica</a></h4>
+                    <p class="venue-description">Nordic cardamom knots, pour-overs & botanical courtyard.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.78</span>
+                      <span class="ms-auto text-muted">0.6 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="The Velvet Crumb" class="venue-card-img" loading="lazy">
+                    <button class="venue-save-btn" data-save-venue="velvet-crumb" data-venue-name="The Velvet Crumb"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Cake Studio</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=velvet-crumb">The Velvet Crumb</a></h4>
+                    <p class="venue-description">Basque cheesecakes, chiffon layers & botanical tiers.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.85</span>
+                      <span class="ms-auto text-muted">1.9 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=600&auto=format&fit=crop" alt="L'Atelier du Cacao" class="venue-card-img" loading="lazy">
+                    <button class="venue-save-btn" data-save-venue="l-atelier-cacao" data-venue-name="L'Atelier du Cacao"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Chocolatier</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=l-atelier-cacao">L'Atelier du Cacao</a></h4>
+                    <p class="venue-description">Estate cacao, botanical bonbons & chocolate tasting flights.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.95</span>
+                      <span class="ms-auto text-muted">2.1 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newly Discovered Pane -->
+          <div class="tab-pane fade" id="newly-pane" role="tabpanel" tabindex="0">
+            <div class="row g-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=600&auto=format&fit=crop" alt="Petite Tartine & Bread Co." class="venue-card-img" loading="lazy">
+                    <span class="venue-badge-pill">New Addition</span>
+                    <button class="venue-save-btn" data-save-venue="petite-tartine" data-venue-name="Petite Tartine & Bread Co."><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Bakeries</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=petite-tartine">Petite Tartine & Bread Co.</a></h4>
+                    <p class="venue-description">Wood-fired sourdough baguettes, open-faced tartines & morning brioche.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.82</span>
+                      <span class="ms-auto text-muted">3.2 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=600&auto=format&fit=crop" alt="La Confiserie Royale" class="venue-card-img" loading="lazy">
+                    <span class="venue-badge-pill">Heritage Gem</span>
+                    <button class="venue-save-btn" data-save-venue="la-confiserie-royale" data-venue-name="La Confiserie Royale"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Confectionery</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=la-confiserie-royale">La Confiserie Royale</a></h4>
+                    <p class="venue-description">Ancestral copper kettle pâtes de fruits, Provence calissons & honey nougat.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.75</span>
+                      <span class="ms-auto text-muted">1.7 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="venue-card">
+                  <div class="venue-card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="The Velvet Crumb" class="venue-card-img" loading="lazy">
+                    <span class="venue-badge-pill">Trending Studio</span>
+                    <button class="venue-save-btn" data-save-venue="velvet-crumb" data-venue-name="The Velvet Crumb"><i class="bi bi-bookmark"></i></button>
+                  </div>
+                  <div class="venue-card-body">
+                    <span class="venue-category-label">Cake Studio</span>
+                    <h4 class="venue-title"><a href="venue-details.html?id=velvet-crumb">The Velvet Crumb</a></h4>
+                    <p class="venue-description">Bespoke celebration tiers, floral botanicals & velvet layer cakes.</p>
+                    <div class="venue-meta-row">
+                      <span class="rating-badge"><i class="bi bi-star-fill"></i> 4.85</span>
+                      <span class="ms-auto text-muted">1.9 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: VENUE OWNER CTA -->
+    <section class="py-5">
+      <div class="container py-lg-4">
+        <div class="p-lg-5 p-4 rounded-5 border border-medium shadow-md position-relative overflow-hidden" style="background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-secondary) 100%);">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-3">For Bakery & Patisserie Owners</span>
+              <h2 class="display-6 font-serif fw-bold mb-2">Own a Bakery or Dessert Shop?</h2>
+              <p class="text-secondary fs-5 mb-0">Get discovered by food lovers looking for their next favorite place in your neighborhood.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html#list-venue" class="btn btn-primary-custom px-4 py-3">
+                <i class="bi bi-shop"></i> List Your Place
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FINAL HERO CTA -->
+    <section class="py-6 text-center position-relative overflow-hidden" style="background: radial-gradient(circle at center, var(--accent-warm-tint) 0%, transparent 70%);">
+      <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="display-5 font-serif fw-bold mb-3">There’s Something Delicious Around the Corner.</h2>
+            <p class="fs-5 text-secondary mb-4">Start your discovery journey across independent bakeries, pastry labs, and dessert artisans today.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="discover.html" class="btn btn-primary-custom px-4 py-3 fs-6">
+                <i class="bi bi-compass"></i> Explore Nearby
+              </a>
+              <a href="categories.html" class="btn btn-secondary-custom px-4 py-3 fs-6">
+                <i class="bi bi-grid-fill"></i> Browse Categories
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Col 1: Brand & Tagline -->
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand-custom" href="index.html">
+            <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+            <span>CRUMB & TABLE</span>
+          </a>
+          <p class="footer-brand-text">
+            “Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.
+          </p>
+
+          <!-- Newsletter Form -->
+          <form class="newsletter-form mt-3" style="max-width: 320px;">
+            <div class="input-group">
+              <input type="email" class="form-control rounded-start-pill border-subtle" placeholder="Your email dispatch..." required aria-label="Newsletter email">
+              <button class="btn btn-primary-custom rounded-end-pill px-3" type="submit" aria-label="Subscribe to newsletter">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <div class="form-text small text-muted mt-1">Weekly bakery trails. No spam.</div>
+          </form>
+        </div>
+
+        <!-- Col 2: Discover -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
+            <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+            <li><a href="category-details.html?category=cake-shops">Cake Shops</a></li>
+            <li><a href="category-details.html?category=dessert-shops">Dessert Shops</a></li>
+            <li><a href="category-details.html?category=chocolatiers">Chocolatiers</a></li>
+            <li><a href="category-details.html?category=artisan-bread">Artisan Bread</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Explore -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="map.html">Local Map</a></li>
+            <li><a href="discover.html?filter=trending">Trending Places</a></li>
+            <li><a href="menu.html">Menu Explorer</a></li>
+            <li><a href="guides.html">Editorial Guides</a></li>
+            <li><a href="saved.html">Saved Places</a></li>
+            <li><a href="booking.html">Reserve a Table</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Company -->
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links mb-3">
+            <li><a href="about.html">About Crumb & Table</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+            <li><a href="contact.html#list-venue">List Your Bakery / Place</a></li>
+            <li><a href="about.html#editorial-standards">Editorial Standards</a></li>
+            <li><a href="about.html#faqs">Frequently Asked Questions</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <span class="small text-muted">City:</span>
+            <select class="form-select form-select-sm border-subtle w-auto rounded-pill" aria-label="Select City">
+              <option selected>Central City</option>
+              <option>Arts Quarter</option>
+              <option>Old Foundry</option>
+              <option>Golden Triangle</option>
+              <option>Harborfront</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Crumb & Table Discovery Platform. All rights reserved. Fictional local dining discovery brand.
+        </div>
+        <div class="social-icons-row">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== GLOBAL SEARCH MODAL ==================== -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true" aria-labelledby="globalSearchTitle">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, sourdough, desserts..." id="globalSearchInput" aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search aria-label="Close search"></button>
+      </div>
+      <div class="search-modal-results">
+        <!-- Live search results rendered by search.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Mini Map Initializer for Home Preview -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapContainer = document.getElementById("homeMiniMap");
+      if (mapContainer && typeof L !== 'undefined') {
+        const miniMap = L.map('homeMiniMap', {
+          center: [12.9716, 77.5946],
+          zoom: 14,
+          zoomControl: false,
+          dragging: true,
+          scrollWheelZoom: false
+        });
+
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        const tileUrl = isDark 
+          ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+          : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+
+        L.tileLayer(tileUrl, { maxZoom: 18 }).addTo(miniMap);
+
+        // Add markers
+        if (typeof VENUES_DATA !== 'undefined') {
+          VENUES_DATA.slice(0, 4).forEach(v => {
+            const pinIcon = L.divIcon({
+              className: 'custom-leaflet-div-icon',
+              html: `<div class="custom-map-pin"><i class="bi bi-cup-hot-fill"></i></div>`,
+              iconSize: [32, 32],
+              iconAnchor: [16, 16]
+            });
+            L.marker(v.coordinates, { icon: pinIcon })
+              .bindPopup(`<strong>${v.name}</strong><br><small>${v.category}</small><br><a href="venue-details.html?id=${v.id}">View Place</a>`)
+              .addTo(miniMap);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

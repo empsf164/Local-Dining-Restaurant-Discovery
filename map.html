@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Map Explorer — Crumb & Table Bakery Discovery</title>
+  <meta name="description" content="Explore local bakeries, patisseries, chocolatiers, and dessert destinations on an interactive map.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+
+  <style>
+    /* Full Height Map Explorer Specific */
+    .map-explorer-container {
+      height: calc(100vh - var(--navbar-height));
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-list-sidebar {
+      width: 420px;
+      height: 100%;
+      overflow-y: auto;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-medium);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .map-viewport-panel {
+      flex: 1;
+      height: 100%;
+      position: relative;
+    }
+
+    .map-floating-controls {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .map-floating-controls > * {
+      pointer-events: auto;
+    }
+
+    .active-card {
+      border-color: var(--accent-terracotta) !important;
+      background-color: var(--accent-warm-tint) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="discover.html">Discover</a></li>
+            <li class="nav-item"><a class="nav-link-custom active" href="map.html">Map</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="guides.html">Guides</a></li>
+            <li class="nav-item">
+              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
+                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link-custom" href="about.html">About</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
+            </button>
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Offcanvas -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="discover.html" class="mobile-nav-link">Discover Places</a>
+      <a href="map.html" class="mobile-nav-link active">Map Explorer</a>
+      <a href="categories.html" class="mobile-nav-link">Categories</a>
+      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
+      <a href="guides.html" class="mobile-nav-link">Food Guides</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <hr class="my-4 border-subtle">
+      <div class="mobile-auth-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== SPLIT-SCREEN MAP CONTAINER ==================== -->
+  <main class="map-explorer-container map-layout-wrapper">
+    <!-- Left Sidebar: Synchronized Venue List -->
+    <aside class="map-list-sidebar p-3">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h2 class="font-serif fw-bold fs-5 mb-0">Local Bakeries & Cafés</h2>
+          <div class="small text-muted">Click any place to focus on map</div>
+        </div>
+        <a href="discover.html" class="small text-terracotta fw-bold text-decoration-none">Filter &rarr;</a>
+      </div>
+
+      <div class="d-flex flex-column" id="mapVenueListContainer">
+        <!-- Rendered by map.js -->
+      </div>
+    </aside>
+
+    <!-- Right Panel: Full Leaflet Map -->
+    <section class="map-viewport-panel">
+      <!-- Floating Top Filter Pills Bar -->
+      <div class="map-floating-controls">
+        <div class="d-flex align-items-center gap-2 overflow-x-auto pb-2 text-nowrap">
+          <button class="filter-chip map-category-chip active glass-pill" data-category="all">
+            <i class="bi bi-grid-fill"></i> All Places
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="bakeries">
+            <i class="bi bi-shop"></i> Bakeries
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="patisseries">
+            <i class="bi bi-cup-hot-fill"></i> Patisseries
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="cake-shops">
+            <i class="bi bi-cake2-fill"></i> Cake Studios
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="dessert-shops">
+            <i class="bi bi-magic"></i> Dessert Spots
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="chocolatiers">
+            <i class="bi bi-gem"></i> Chocolatiers
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="artisan-bread">
+            <i class="bi bi-basket2-fill"></i> Artisan Bread
+          </button>
+          <button class="filter-chip map-category-chip glass-pill" data-category="coffee-bakery">
+            <i class="bi bi-cup-straw"></i> Coffee & Bakery
+          </button>
+        </div>
+      </div>
+
+      <!-- Leaflet Map Container -->
+      <div id="discoveryMap" class="w-100 h-100"></div>
+    </section>
+  </main>
+
+  <!-- Mobile Map / List Toggle Floating Button -->
+  <button class="btn btn-primary-custom mobile-map-toggle-btn py-2 px-4 rounded-pill" id="mobileMapToggleBtn">
+    <i class="bi bi-map-fill me-1"></i> View Map
+  </button>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search></button>
+      </div>
+      <div class="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

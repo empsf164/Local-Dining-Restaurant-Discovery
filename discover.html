@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Local Bakeries & Patisseries — Crumb & Table</title>
+  <meta name="description" content="Explore and filter top-rated artisanal bakeries, French patisseries, dessert studios, and chocolatiers around you.">
+  
+  <!-- Bootstrap 5 & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Dark Mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search">
+            <i class="bi bi-search"></i>
+          </button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link-custom active dropdown-toggle" href="discover.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Discover <i class="bi bi-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-custom">
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=trending"><i class="bi bi-fire"></i> Trending Nearby</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=new"><i class="bi bi-sparkles"></i> New Places</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=rated"><i class="bi bi-star-fill"></i> Highly Rated</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=editors"><i class="bi bi-award-fill"></i> Editor's Picks</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=open"><i class="bi bi-clock-fill"></i> Open Now</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link-custom" href="map.html">Map</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link-custom dropdown-toggle" href="categories.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories <i class="bi bi-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-custom">
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=bakeries">Bakeries</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=patisseries">Patisseries</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=cake-shops">Cake Shops</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=dessert-shops">Dessert Shops</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=chocolatiers">Chocolatiers</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=artisan-bread">Artisan Bread</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=coffee-bakery">Coffee & Bakery</a></li>
+                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=confectionery">Confectionery</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="guides.html">Guides</a></li>
+            <li class="nav-item">
+              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
+                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link-custom" href="about.html">About</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
+            </button>
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== MOBILE OFFCANVAS ==================== -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="discover.html" class="mobile-nav-link active">Discover Places</a>
+      <a href="map.html" class="mobile-nav-link">Map Explorer</a>
+      <a href="categories.html" class="mobile-nav-link">Categories</a>
+      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
+      <a href="guides.html" class="mobile-nav-link">Food Guides</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact & List Bakery</a>
+      <hr class="my-4 border-subtle">
+      <div class="mobile-auth-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN DISCOVERY CONTENT ==================== -->
+  <main class="py-4">
+    <div class="container-fluid px-lg-4 px-3">
+      <!-- Breadcrumb & Header Title -->
+      <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Discover Local Food</li>
+        </ol>
+      </nav>
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+        <div>
+          <h1 class="font-serif fw-bold display-6 mb-1">Discover Local Food</h1>
+          <p class="text-secondary mb-0">Explore handpicked bakeries, artisan pastry studios, and dessert destinations.</p>
+        </div>
+
+        <!-- Mobile Filter Button (Triggers Offcanvas Filter Drawer) -->
+        <button class="btn btn-secondary-custom d-lg-none d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterDrawerOffcanvas">
+          <i class="bi bi-sliders"></i> Filter Discoveries
+        </button>
+      </div>
+
+      <!-- Discovery Layout: Sidebar + Grid -->
+      <div class="row g-4">
+        <!-- DESKTOP FILTER SIDEBAR -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <div class="p-4 bg-surface rounded-4 border border-medium shadow-sm position-sticky" style="top: 100px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold font-serif fs-5 mb-0"><i class="bi bi-funnel-fill text-terracotta me-1"></i> Filters</h5>
+              <button class="btn btn-sm btn-link text-terracotta text-decoration-none p-0 fw-bold" id="clearAllFiltersBtn" type="button">Reset All</button>
+            </div>
+
+            <!-- Search input within filters -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase">Keywords</label>
+              <div class="input-group">
+                <span class="input-group-text bg-secondary border-subtle"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control border-subtle" id="discoverSearchInput" placeholder="Croissant, brioche, cake..." aria-label="Filter search">
+              </div>
+            </div>
+
+            <!-- Open Now Toggle -->
+            <div class="mb-4 p-3 bg-secondary rounded-3 border border-subtle d-flex justify-content-between align-items-center">
+              <div>
+                <label class="form-check-label fw-bold small" for="filterOpenNow">Open Now Only</label>
+                <div class="text-muted" style="font-size: 0.75rem;">Show venues currently open</div>
+              </div>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input filter-control-input" type="checkbox" role="switch" id="filterOpenNow">
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase mb-2">Category</label>
+              <div class="d-flex flex-column gap-2">
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="bakeries"> Bakeries</span>
+                  <span class="small text-muted">24</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="patisseries"> Patisseries</span>
+                  <span class="small text-muted">18</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="cake-shops"> Cake Shops</span>
+                  <span class="small text-muted">15</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="dessert-shops"> Dessert Destinations</span>
+                  <span class="small text-muted">12</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="chocolatiers"> Chocolatiers</span>
+                  <span class="small text-muted">9</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="artisan-bread"> Artisan Bread</span>
+                  <span class="small text-muted">14</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="coffee-bakery"> Coffee & Bakery</span>
+                  <span class="small text-muted">22</span>
+                </label>
+                <label class="form-check d-flex align-items-center justify-content-between m-0">
+                  <span><input class="form-check-input filter-control-input me-2" type="checkbox" name="categoryFilter" value="confectionery"> Confectionery</span>
+                  <span class="small text-muted">8</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Minimum Rating -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase mb-2">Rating</label>
+              <div class="d-flex flex-column gap-2">
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="radio" name="ratingFilter" value="0" checked>
+                  <span>All Ratings</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="radio" name="ratingFilter" value="4.8">
+                  <span><i class="bi bi-star-fill text-warning"></i> 4.8 & higher (Exceptional)</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="radio" name="ratingFilter" value="4.5">
+                  <span><i class="bi bi-star-fill text-warning"></i> 4.5 & higher</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="radio" name="ratingFilter" value="4.0">
+                  <span><i class="bi bi-star-fill text-warning"></i> 4.0 & higher</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Price Tier -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase mb-2">Price Tier</label>
+              <div class="btn-group w-100" role="group" aria-label="Price range filter">
+                <input type="checkbox" class="btn-check filter-control-input" name="priceFilter" id="price1" value="1">
+                <label class="btn btn-outline-secondary btn-sm" for="price1">₹</label>
+
+                <input type="checkbox" class="btn-check filter-control-input" name="priceFilter" id="price2" value="2">
+                <label class="btn btn-outline-secondary btn-sm" for="price2">₹₹</label>
+
+                <input type="checkbox" class="btn-check filter-control-input" name="priceFilter" id="price3" value="3">
+                <label class="btn btn-outline-secondary btn-sm" for="price3">₹₹₹</label>
+
+                <input type="checkbox" class="btn-check filter-control-input" name="priceFilter" id="price4" value="4">
+                <label class="btn btn-outline-secondary btn-sm" for="price4">₹₹₹₹</label>
+              </div>
+            </div>
+
+            <!-- Dietary Options -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase mb-2">Dietary Options</label>
+              <div class="d-flex flex-column gap-2">
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="dietaryFilter" value="Vegetarian">
+                  <span>Vegetarian Friendly</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="dietaryFilter" value="Eggless">
+                  <span>Eggless Options</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="dietaryFilter" value="Vegan">
+                  <span>Vegan Friendly</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="dietaryFilter" value="Gluten-Free">
+                  <span>Gluten-Free Sponge/Truffles</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Amenities -->
+            <div>
+              <label class="form-label small fw-bold text-muted text-uppercase mb-2">Amenities</label>
+              <div class="d-flex flex-column gap-2">
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="amenitiesFilter" value="Outdoor">
+                  <span>Outdoor Terrace / Seating</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="amenitiesFilter" value="Wi-Fi">
+                  <span>Wi-Fi & Laptop Friendly</span>
+                </label>
+                <label class="form-check m-0">
+                  <input class="form-check-input filter-control-input me-2" type="checkbox" name="amenitiesFilter" value="Dog Friendly">
+                  <span>Pet / Dog Friendly</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN VENUE GRID -->
+        <section class="col-lg-9">
+          <!-- Filter bar top: Results Count & Sort Dropdown -->
+          <div class="p-3 bg-surface rounded-4 border border-subtle mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span class="fw-bold" id="resultsCountBadge">Loading places...</span>
+
+            <div class="d-flex align-items-center gap-2">
+              <label for="discoverSortSelect" class="small text-muted text-nowrap">Sort by:</label>
+              <select class="form-select form-select-sm border-subtle rounded-pill w-auto" id="discoverSortSelect">
+                <option value="recommended" selected>Recommended</option>
+                <option value="highest-rated">Highest Rated</option>
+                <option value="nearest">Nearest to Me</option>
+                <option value="trending">Popular This Week</option>
+                <option value="newest">Newly Listed</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- The Grid (Populated dynamically by filters.js) -->
+          <div class="row g-4" id="discoverVenueGrid">
+            <!-- Rendered by filters.js -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== MOBILE FILTER DRAWER OFFCANVAS ==================== -->
+  <div class="offcanvas offcanvas-start mobile-offcanvas" tabindex="-1" id="filterDrawerOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold"><i class="bi bi-funnel-fill text-terracotta me-1"></i> Filter Places</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Mirror of filter controls for mobile -->
+      <div class="d-grid gap-3">
+        <button class="btn btn-primary-custom w-100 py-2" data-bs-dismiss="offcanvas">Apply Filters</button>
+        <button class="btn btn-secondary-custom w-100 py-2" id="mobileResetFiltersBtn">Reset All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand-custom" href="index.html">
+            <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+            <span>CRUMB & TABLE</span>
+          </a>
+          <p class="footer-brand-text">“Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="discover.html">All Places</a></li>
+            <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
+            <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+            <li><a href="category-details.html?category=dessert-shops">Desserts</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="map.html">Map</a></li>
+            <li><a href="menu.html">Menu Explorer</a></li>
+            <li><a href="guides.html">Food Guides</a></li>
+            <li><a href="saved.html">Saved Places</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+            <li><a href="contact.html#list-venue">List a Bakery</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Crumb & Table Discovery Platform. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search></button>
+      </div>
+      <div class="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

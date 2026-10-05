@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Crumb & Table</title>
+  <meta name="description" content="Looks like this treat has already been savored or the page took a wrong turn.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <span>CRUMB & TABLE</span>
+        </a>
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <a href="discover.html" class="btn btn-primary-custom btn-sm">Explore Nearby</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Error Content -->
+  <main class="flex-grow-1 d-flex align-items-center justify-content-center py-5">
+    <div class="container text-center" style="max-width: 600px;">
+      <div class="p-4 p-md-5 bg-surface rounded-5 border border-medium shadow-lg">
+        <div class="display-1 font-serif fw-bold text-terracotta mb-2">404</div>
+        <h1 class="font-serif fw-bold fs-2 mb-3">Looks Like This Page Took a Wrong Turn.</h1>
+        <p class="text-secondary mb-4 leading-relaxed">
+          Perhaps this secret recipe is still baking in the oven, or the page you're searching for was moved to another bakery counter.
+        </p>
+
+        <!-- Search Bar within 404 -->
+        <form action="discover.html" method="GET" class="mb-4">
+          <div class="input-group">
+            <span class="input-group-text bg-secondary border-subtle"><i class="bi bi-search"></i></span>
+            <input type="text" name="q" class="form-control border-subtle" placeholder="Search croissants, sourdough, desserts..." required>
+            <button class="btn btn-primary-custom" type="submit">Search</button>
+          </div>
+        </form>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="index.html" class="btn btn-secondary-custom py-2 px-3">
+            <i class="bi bi-house-door"></i> Return Home
+          </a>
+          <a href="discover.html" class="btn btn-primary-custom py-2 px-4">
+            <i class="bi bi-compass"></i> Discover Bakeries
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-3 border-top border-subtle text-center small text-muted">
+    &copy; 2026 Crumb & Table Discovery Platform. All rights reserved.
+  </footer>
+
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

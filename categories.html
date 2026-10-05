@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakery & Confectionery Categories — Crumb & Table</title>
+  <meta name="description" content="Browse specialized categories from French patisseries and sourdough bakeries to chocolatiers and avant-garde dessert bars.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="discover.html">Discover</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="map.html">Map</a></li>
+            <li class="nav-item"><a class="nav-link-custom active" href="categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="guides.html">Guides</a></li>
+            <li class="nav-item">
+              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
+                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link-custom" href="about.html">About</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
+            </button>
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Offcanvas -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="discover.html" class="mobile-nav-link">Discover Places</a>
+      <a href="map.html" class="mobile-nav-link">Map Explorer</a>
+      <a href="categories.html" class="mobile-nav-link active">Categories</a>
+      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
+      <a href="guides.html" class="mobile-nav-link">Food Guides</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <hr class="my-4 border-subtle">
+      <div class="mobile-auth-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="py-4">
+    <div class="container py-2">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Categories</li>
+        </ol>
+      </nav>
+
+      <!-- Category Intro Header -->
+      <div class="p-lg-5 p-4 rounded-5 bg-surface border border-subtle mb-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 85% 15%, var(--accent-warm-tint) 0%, transparent 60%);">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Curated Taxonomy</span>
+            <h1 class="display-5 font-serif fw-bold mb-2">Bakery & Confectionery Categories</h1>
+            <p class="fs-5 text-secondary mb-0">From heritage stoneground sourdough hearths to midnight chocolate tasting lounges, explore dedicated artisanal disciplines.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Grid with Detailed Cards -->
+      <div class="row g-4" id="categoriesListGrid">
+        <!-- Javascript or static cards -->
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Bakeries" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Bakeries</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">24 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">Artisan ovens, fresh morning loaves, rustic boules, and golden crusts baked before sunrise.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Sourdough · Baguettes · Brioche</span>
+              <a href="category-details.html?category=bakeries" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop" alt="Patisseries" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Patisseries</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">18 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">French viennoiserie, 72-layer croissants, mille-feuilles, and mirror-glazed entremets.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Croissants · Mille-Feuille · Éclairs</span>
+              <a href="category-details.html?category=patisseries" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Cake Shops" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Cake Shops</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">15 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">Celebration tiers, Basque cheesecakes, botanical chiffon sponges, and velvet slices.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Basque Cheesecake · Chiffon · Tiers</span>
+              <a href="category-details.html?category=cake-shops" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop" alt="Dessert Destinations" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Dessert Destinations</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">12 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">Plated desserts, liquid nitrogen sorbet counters, and nocturnal dessert pairing salons.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Terrariums · Soufflés · Nitro Sorbets</span>
+              <a href="category-details.html?category=dessert-shops" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=600&auto=format&fit=crop" alt="Chocolatiers" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Chocolatiers</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">9 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">Single-origin bean-to-bar craftsmanship, hand-painted bonbons & rich velvet drinking chocolate.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Bonbons · Truffles · Hot Cocoa</span>
+              <a href="category-details.html?category=chocolatiers" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100 d-flex flex-column transition-all hover-shadow">
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=600&auto=format&fit=crop" alt="Coffee & Bakery" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3 class="font-serif fw-bold fs-4 mb-0">Coffee & Bakery</h3>
+              <span class="badge bg-secondary text-terracotta rounded-pill">22 Places</span>
+            </div>
+            <p class="small text-secondary mb-3">Swedish cardamom knots, cinnamon buns, and light-roast Nordic filter coffee pairings.</p>
+            <div class="mt-auto pt-3 border-top border-subtle d-flex justify-content-between align-items-center">
+              <span class="small text-muted">Cardamom Buns · Pour Overs · Scones</span>
+              <a href="category-details.html?category=coffee-bakery" class="btn btn-sm btn-primary-custom py-1 px-3">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand-custom" href="index.html">
+            <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+            <span>CRUMB & TABLE</span>
+          </a>
+          <p class="footer-brand-text">“Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="discover.html">All Places</a></li>
+            <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
+            <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="map.html">Map</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="guides.html">Food Guides</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Crumb & Table Discovery Platform. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search></button>
+      </div>
+      <div class="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

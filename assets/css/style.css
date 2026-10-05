@@ -1,0 +1,227 @@
+/* ==========================================================================
+   CRUMB & TABLE - DESIGN SYSTEM & BASE STYLES
+   Specialty: Bakery, Patisserie, Confectionery & Dessert Discovery
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* --- Root Variables: Light Palette --- */
+:root {
+  /* Typography */
+  --font-serif: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Color Palette - Light Mode */
+  --bg-primary: #FAFAF7;
+  --bg-secondary: #F4EFE6;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.82);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.65);
+  
+  --text-primary: #1C120C;
+  --text-secondary: #5A473D;
+  --text-muted: #87746A;
+  --text-inverse: #FAF7F2;
+
+  --border-subtle: rgba(74, 51, 38, 0.08);
+  --border-medium: rgba(74, 51, 38, 0.15);
+  --border-strong: rgba(74, 51, 38, 0.28);
+  
+  /* Brand Accent Hues */
+  --accent-espresso: #2A170F;
+  --accent-cocoa: #4E3426;
+  --accent-terracotta: #C86D51;
+  --accent-terracotta-hover: #B45B3F;
+  --accent-sage: #8A9A86;
+  --accent-sage-soft: #EBF0EA;
+  --accent-gold: #D4A359;
+  --accent-gold-soft: #FDF6E8;
+  --accent-cream: #F5EFEB;
+  --accent-warm-tint: rgba(200, 109, 81, 0.08);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(35, 20, 12, 0.04);
+  --shadow-md: 0 8px 24px rgba(35, 20, 12, 0.07);
+  --shadow-lg: 0 16px 40px rgba(35, 20, 12, 0.11);
+  --shadow-xl: 0 24px 60px rgba(35, 20, 12, 0.16);
+  --shadow-glow: 0 0 25px rgba(212, 163, 89, 0.22);
+
+  /* Layout & Geometry */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --navbar-height: 80px;
+}
+
+/* --- Dark Theme Variables --- */
+[data-theme="dark"] {
+  --bg-primary: #0F0A08;
+  --bg-secondary: #17100D;
+  --bg-surface: #1E1510;
+  --bg-elevated: #281C16;
+  --bg-glass: rgba(24, 16, 13, 0.85);
+  --bg-glass-subtle: rgba(30, 21, 16, 0.7);
+
+  --text-primary: #F7EFE9;
+  --text-secondary: #C8B7AC;
+  --text-muted: #8C7B72;
+  --text-inverse: #1C120C;
+
+  --border-subtle: rgba(245, 235, 225, 0.08);
+  --border-medium: rgba(245, 235, 225, 0.14);
+  --border-strong: rgba(245, 235, 225, 0.24);
+
+  --accent-espresso: #E8D7CD;
+  --accent-cocoa: #D0BDB2;
+  --accent-terracotta: #D97757;
+  --accent-terracotta-hover: #E88869;
+  --accent-sage: #9EB09A;
+  --accent-sage-soft: #1E271D;
+  --accent-gold: #DFB16E;
+  --accent-gold-soft: #2B2213;
+  --accent-cream: #241A14;
+  --accent-warm-tint: rgba(217, 119, 87, 0.12);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 25px rgba(223, 177, 110, 0.18);
+}
+
+/* --- Base Reset & Typography --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-terracotta);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-terracotta);
+  color: #FFFFFF;
+}
+
+/* Glassmorphism Classes (Restricted to hero search, modals, overlay, floating map controls) */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-medium);
+}
+
+.glass-pill {
+  background: var(--bg-glass-subtle);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Utility Animations */
+.fade-in-up {
+  animation: fadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

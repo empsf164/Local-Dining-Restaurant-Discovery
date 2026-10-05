@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us & Editorial Standards — Crumb & Table</title>
+  <meta name="description" content="Learn about Crumb & Table's mission to curate independent artisanal bakeries, patisseries, and dessert studios with uncompromising quality.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-lg-4 px-3">
+        <a class="navbar-brand navbar-brand-custom" href="index.html">
+          <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+          <div>
+            <span>CRUMB & TABLE</span>
+            <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+          </div>
+        </a>
+
+        <!-- Mobile Controls -->
+        <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
+          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+          <button class="btn-nav-search" data-open-search type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-2 text-primary"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
+          <ul class="navbar-nav align-items-center gap-1">
+            <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="discover.html">Discover</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="map.html">Map</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="guides.html">Guides</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="saved.html">Saved</a></li>
+            <li class="nav-item"><a class="nav-link-custom active" href="about.html">About</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn-nav-search" data-open-search type="button">
+              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
+            </button>
+            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
+            <div class="auth-nav-container d-flex align-items-center gap-2">
+              <a href="login.html" class="nav-link-custom">Login</a>
+              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
+            </div>
+            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Offcanvas -->
+  <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-nav-group-title">Navigation</div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="discover.html" class="mobile-nav-link">Discover Places</a>
+      <a href="about.html" class="mobile-nav-link active">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <hr class="my-4 border-subtle">
+      <div class="mobile-auth-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN ABOUT CONTENT ==================== -->
+  <main class="py-4">
+    <div class="container py-2" style="max-width: 980px;">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">About Us</li>
+        </ol>
+      </nav>
+
+      <!-- Editorial About Banner -->
+      <div class="p-lg-5 p-4 rounded-5 bg-surface border border-subtle mb-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 85% 15%, var(--accent-warm-tint) 0%, transparent 60%);">
+        <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-3">Our Manifesto</span>
+        <h1 class="display-4 font-serif fw-bold mb-3">A Celebration of Craft, Butter, and Local Food Discovery.</h1>
+        <p class="fs-5 text-secondary mb-0 leading-relaxed">
+          Crumb & Table was founded on a simple belief: that finding exceptional bread, immaculate pastries, and unforgettable sweet moments should be an inspiring visual journey, not an algorithm-driven commodity.
+        </p>
+      </div>
+
+      <!-- 3 Pillars Section -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 p-3 bg-secondary text-terracotta fs-4">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <h3 class="font-serif fw-bold fs-5 mb-2">Uncompromised Quality</h3>
+            <p class="small text-secondary mb-0">We prioritize bakers who mill heritage grains, temper real single-origin cacao, and laminate with high-fat cultured butter.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 p-3 bg-secondary text-terracotta fs-4">
+              <i class="bi bi-compass-fill"></i>
+            </div>
+            <h3 class="font-serif fw-bold fs-5 mb-2">Neighborhood Discovery</h3>
+            <p class="small text-secondary mb-0">Discovering hidden gems on cobblestone alleys, waterfront pastry tasting tables, and morning bread queues worth waking up for.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-surface rounded-4 border border-subtle h-100">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 p-3 bg-secondary text-terracotta fs-4">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <h3 class="font-serif fw-bold fs-5 mb-2">Editorial Integrity</h3>
+            <p class="small text-secondary mb-0">Our scouts visit anonymously and pay for their own croissants and cakes. We never sell listing placements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- How Discovery Works -->
+      <section class="p-4 p-lg-5 bg-surface rounded-5 border border-medium shadow-sm mb-5" id="how-discovery-works">
+        <h2 class="display-6 font-serif fw-bold mb-4">How Discovery Works</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="fs-1 font-serif fw-bold text-terracotta mb-2">01</div>
+            <h4 class="font-serif fw-bold fs-5 mb-2">Scouted & Verified</h4>
+            <p class="small text-secondary">Every bakery profile is curated with verified opening hours, signature creations, dietary indicators, and real photos.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="fs-1 font-serif fw-bold text-terracotta mb-2">02</div>
+            <h4 class="font-serif fw-bold fs-5 mb-2">Explore & Plan</h4>
+            <p class="small text-secondary">Browse interactive map pins, filter by sourdough ferments or Basque cheesecakes, and save discoveries to your personal wishlist.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="fs-1 font-serif fw-bold text-terracotta mb-2">03</div>
+            <h4 class="font-serif fw-bold fs-5 mb-2">Savor & Review</h4>
+            <p class="small text-secondary">Visit your chosen venue, indulge in warm morning brioche, and share community feedback to guide fellow food lovers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Editorial Standards -->
+      <section class="mb-5" id="editorial-standards">
+        <h2 class="display-6 font-serif fw-bold mb-3">Our Editorial Standards</h2>
+        <p class="text-secondary leading-relaxed mb-4">
+          We believe in honest food journalism. Our guides are curated by passionate food stylists, bread scholars, and pastry editors. We spotlight bakeries that champion regenerative agriculture, fair-trade single-estate cacao, and artisanal fermentation.
+        </p>
+
+        <div class="p-4 bg-secondary rounded-4 border border-subtle">
+          <h4 class="font-serif fs-5 fw-bold mb-2"><i class="bi bi-shield-check text-terracotta me-1"></i> Transparency Guarantee</h4>
+          <p class="small text-secondary mb-0">
+            Crumb & Table does not accept paid placements to artificially boost search rankings. Featured badges like <em>Editor's Choice</em> are awarded strictly through blind sensory evaluation by our team.
+          </p>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <section class="mb-5" id="faqs">
+        <h2 class="display-6 font-serif fw-bold mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="aboutFaqAccordion">
+          <div class="accordion-item bg-surface border-subtle mb-3 rounded-3 overflow-hidden">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Is Crumb & Table a food delivery app?
+              </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+              <div class="accordion-body text-secondary small">
+                No. Crumb & Table is a dedicated dining and bakery discovery platform. We believe the magic of bakeries lies in warm morning aromas, glass display counters, and visiting the venues in person.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item bg-surface border-subtle mb-3 rounded-3 overflow-hidden">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                How do I list my bakery or dessert studio?
+              </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+              <div class="accordion-body text-secondary small">
+                Bakery owners and pastry chefs can submit their venue details through our <a href="contact.html#list-venue" class="text-terracotta fw-bold">Venue Onboarding Portal</a>. Our team will review your menu, photos, and baking philosophy within 48 hours.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item bg-surface border-subtle mb-3 rounded-3 overflow-hidden">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                How do I save places across multiple devices?
+              </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+              <div class="accordion-body text-secondary small">
+                Create a free Crumb & Table account to synchronize your saved bakeries, favorite pastries, and reading lists seamlessly across phone, tablet, and desktop.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand-custom" href="index.html">
+            <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+            <span>CRUMB & TABLE</span>
+          </a>
+          <p class="footer-brand-text">“Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="discover.html">All Places</a></li>
+            <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
+            <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="map.html">Map</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="guides.html">Food Guides</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Crumb & Table Discovery Platform. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" role="dialog" aria-modal="true">
+    <div class="search-modal-dialog">
+      <div class="search-modal-header">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <button type="button" class="btn-close ms-2" data-close-search></button>
+      </div>
+      <div class="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/venues-data.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/favorites.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
