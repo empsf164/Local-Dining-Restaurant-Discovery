@@ -140,8 +140,8 @@
   }
 }
 
-/* --- Tablet / Medium Devices (768px to 991.98px) --- */
-@media (min-width: 768px) and (max-width: 991.98px) {
+/* --- Tablet / Medium & 1024px Devices (768px to 1024.98px) --- */
+@media (min-width: 768px) and (max-width: 1024.98px) {
   .hero-search-wrapper {
     max-width: 100%;
   }
@@ -149,10 +149,113 @@
   .map-list-sidebar {
     width: 380px !important;
   }
+
+  /* --------------------------------------------------------------------------
+     All Sections / All Pages: Align 2 Cards per Row (50% Width Each)
+     -------------------------------------------------------------------------- */
+  .row:has(> [class*="col-"] > .venue-card),
+  .row:has(> [class*="col-"] > .guide-card),
+  .row:has(> [class*="col-"] > .category-card),
+  .row:has(> [class*="col-"] > .menu-item-card),
+  .row:has(> [class*="col-"] > .pillar-card),
+  .row:has(> [class*="col-"] > .dish-card),
+  .row:has(> [class*="col-"] > .gallery-card),
+  .row:has(> [class*="col-"] > .team-card),
+  .row:has(> [class*="col-"] > .stat-card),
+  .row:has(> [class*="col-"] > .card),
+  .guides-grid,
+  .categories-grid,
+  .about-pillars-row,
+  #homeTrendingGrid,
+  #discoverVenueGrid,
+  #menuItemsGrid,
+  #categoriesListGrid,
+  #categoryVenuesGrid,
+  #venueSignatureDishes,
+  #venueFullGallery,
+  #venueSimilarList,
+  #savedPlacesGrid,
+  #savedMenuGrid,
+  #savedGuidesGrid,
+  #relatedGuidesGrid,
+  #popular-pane .row,
+  #newly-pane .row,
+  #how-discovery-works .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .row:has(> [class*="col-"] > .venue-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .guide-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .category-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .menu-item-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .pillar-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .dish-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .gallery-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .team-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .stat-card) > [class*="col-"],
+  .row:has(> [class*="col-"] > .card) > [class*="col-"],
+  .guides-grid > [class*="col-"],
+  .categories-grid > [class*="col-"],
+  .about-pillars-row > [class*="col-"],
+  #homeTrendingGrid > [class*="col-"],
+  #discoverVenueGrid > [class*="col-"],
+  #menuItemsGrid > [class*="col-"],
+  #categoriesListGrid > [class*="col-"],
+  #categoryVenuesGrid > [class*="col-"],
+  #venueSignatureDishes > [class*="col-"],
+  #venueFullGallery > [class*="col-"],
+  #venueSimilarList > [class*="col-"],
+  #savedPlacesGrid > [class*="col-"],
+  #savedMenuGrid > [class*="col-"],
+  #savedGuidesGrid > [class*="col-"],
+  #relatedGuidesGrid > [class*="col-"],
+  #popular-pane .row > [class*="col-"],
+  #newly-pane .row > [class*="col-"],
+  #how-discovery-works .row > [class*="col-"] {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     Align Last Odd Number Card in Center (3rd of 3, 5th of 5, 7th of 7, etc.)
+     -------------------------------------------------------------------------- */
+  .row:has(> [class*="col-"] > .venue-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .guide-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .category-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .menu-item-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .pillar-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .dish-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .gallery-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .team-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .stat-card) > [class*="col-"]:last-child:nth-child(odd),
+  .row:has(> [class*="col-"] > .card) > [class*="col-"]:last-child:nth-child(odd),
+  .guides-grid > [class*="col-"]:last-child:nth-child(odd),
+  .categories-grid > [class*="col-"]:last-child:nth-child(odd),
+  .about-pillars-row > [class*="col-"]:last-child:nth-child(odd),
+  #homeTrendingGrid > [class*="col-"]:last-child:nth-child(odd),
+  #discoverVenueGrid > [class*="col-"]:last-child:nth-child(odd),
+  #menuItemsGrid > [class*="col-"]:last-child:nth-child(odd),
+  #categoriesListGrid > [class*="col-"]:last-child:nth-child(odd),
+  #categoryVenuesGrid > [class*="col-"]:last-child:nth-child(odd),
+  #venueSignatureDishes > [class*="col-"]:last-child:nth-child(odd),
+  #venueFullGallery > [class*="col-"]:last-child:nth-child(odd),
+  #venueSimilarList > [class*="col-"]:last-child:nth-child(odd),
+  #savedPlacesGrid > [class*="col-"]:last-child:nth-child(odd),
+  #savedMenuGrid > [class*="col-"]:last-child:nth-child(odd),
+  #savedGuidesGrid > [class*="col-"]:last-child:nth-child(odd),
+  #relatedGuidesGrid > [class*="col-"]:last-child:nth-child(odd),
+  #popular-pane .row > [class*="col-"]:last-child:nth-child(odd),
+  #newly-pane .row > [class*="col-"]:last-child:nth-child(odd),
+  #how-discovery-works .row > [class*="col-"]:last-child:nth-child(odd) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
-/* --- Desktop & Ultra-wide (> 992px) --- */
-@media (min-width: 992px) {
+/* --- Desktop & Ultra-wide (> 1025px) --- */
+@media (min-width: 1025px) {
   .mobile-map-toggle-btn {
     display: none !important;
   }

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Local Bakery Guides & Food Stories — Crumb & Table</title>
-  <meta name="description" content="Read curated editorial guides, croissant trails, late-night dessert tours, and behind-the-bake artisan stories.">
-  
+  <meta name="description"
+    content="Read curated editorial guides, croissant trails, late-night dessert tours, and behind-the-bake artisan stories.">
+
+  <!-- Favicon matching Navbar Brand Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -15,12 +20,14 @@
 
   <script src="assets/js/theme.js"></script>
 </head>
+
 <body>
 
   <!-- ==================== NAVBAR ==================== -->
   <header class="site-header">
     <nav class="navbar navbar-expand-xl py-3" aria-label="Main Navigation">
       <div class="container-fluid px-lg-4 px-3">
+        <!-- Brand Logo -->
         <a class="navbar-brand navbar-brand-custom" href="index.html">
           <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
           <div>
@@ -29,41 +36,40 @@
           </div>
         </a>
 
-        <!-- Mobile Controls -->
+        <!-- Mobile Controls (Saved Icon + Sign Up + Hamburger) -->
         <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
-          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
-          <button class="btn-nav-search" data-open-search type="button" aria-label="Search"><i class="bi bi-search"></i></button>
-          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
+          <a href="saved.html" class="btn-nav-icon position-relative" aria-label="Saved Places" title="Saved Places">
+            <i class="bi bi-bookmark-heart"></i>
+            <span class="badge bg-terracotta rounded-pill saved-count-badge"
+              style="display:none; font-size: 0.65rem;">0</span>
+          </a>
+          <a href="signup.html" class="btn btn-sm btn-primary-custom py-1 px-2 small">Sign Up</a>
+          <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenuOffcanvas" aria-label="Toggle navigation">
             <i class="bi bi-list fs-2 text-primary"></i>
           </button>
         </div>
 
+        <!-- Desktop Navigation Links -->
         <div class="collapse navbar-collapse d-none d-xl-flex justify-content-between ms-4">
           <ul class="navbar-nav align-items-center gap-1">
             <li class="nav-item"><a class="nav-link-custom" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link-custom" href="discover.html">Discover</a></li>
-            <li class="nav-item"><a class="nav-link-custom" href="map.html">Map</a></li>
-            <li class="nav-item"><a class="nav-link-custom" href="categories.html">Categories</a></li>
             <li class="nav-item"><a class="nav-link-custom" href="menu.html">Menu</a></li>
             <li class="nav-item"><a class="nav-link-custom active" href="guides.html">Guides</a></li>
-            <li class="nav-item">
-              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
-                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
-              </a>
-            </li>
             <li class="nav-item"><a class="nav-link-custom" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link-custom" href="contact.html">Contact</a></li>
           </ul>
 
+          <!-- Right Action Items (Saved Icon Button + Sign Up Button) -->
           <div class="d-flex align-items-center gap-3">
-            <button class="btn-nav-search" data-open-search type="button">
-              <i class="bi bi-search"></i> <span>Search...</span> <span class="kbd-badge">/</span>
-            </button>
-            <button class="btn-theme-toggle" type="button" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button>
-            <div class="auth-nav-container d-flex align-items-center gap-2">
-              <a href="login.html" class="nav-link-custom">Login</a>
-              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
-            </div>
-            <a href="discover.html" class="btn-primary-custom text-nowrap"><i class="bi bi-compass"></i> Explore Nearby</a>
+            <a href="saved.html" class="btn-nav-icon position-relative" aria-label="Saved Places" title="Saved Places">
+              <i class="bi bi-bookmark-heart"></i>
+              <span class="badge bg-terracotta rounded-pill saved-count-badge"
+                style="display:none; font-size: 0.65rem;">0</span>
+            </a>
+
+            <a href="signup.html" class="btn-primary-custom text-nowrap py-2 px-3">Sign Up</a>
           </div>
         </div>
       </div>
@@ -73,44 +79,41 @@
   <!-- Mobile Offcanvas -->
   <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title font-serif fs-5 fw-bold">CRUMB & TABLE</h5>
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+        <div>
+          <span>CRUMB & TABLE</span>
+          <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+        </div>
+      </a>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
       <div class="mobile-nav-group-title">Navigation</div>
       <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="discover.html" class="mobile-nav-link">Discover Places</a>
-      <a href="map.html" class="mobile-nav-link">Map Explorer</a>
-      <a href="categories.html" class="mobile-nav-link">Categories</a>
-      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
-      <a href="guides.html" class="mobile-nav-link active">Food Guides</a>
-      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="discover.html" class="mobile-nav-link">Discover</a>
+      <a href="menu.html" class="mobile-nav-link">Menu</a>
+      <a href="guides.html" class="mobile-nav-link active">Guides</a>
       <a href="about.html" class="mobile-nav-link">About</a>
-      <hr class="my-4 border-subtle">
-      <div class="mobile-auth-container"></div>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="signup.html" class="mobile-nav-link text-terracotta fw-bold">Sign Up</a>
     </div>
   </div>
 
   <!-- ==================== MAIN CONTENT ==================== -->
   <main class="py-4">
     <div class="container py-2">
-      <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="mb-2">
-        <ol class="breadcrumb small">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Editorial Food Guides</li>
-        </ol>
-      </nav>
-
-      <!-- Editorial Magazine Header -->
-      <div class="p-lg-5 p-4 rounded-5 bg-surface border border-subtle mb-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 85% 20%, var(--accent-warm-tint) 0%, transparent 60%);">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Editorial Dispatch</span>
-            <h1 class="display-5 font-serif fw-bold mb-2">Local Food Guides & Bakery Stories</h1>
-            <p class="fs-5 text-secondary mb-0">Immersive essays, curated neighborhood trails, and artisan profiles penned by our local culinary scouts.</p>
-          </div>
-        </div>
+      <!-- Editorial Magazine Header (Centered Hero) -->
+      <div
+        class="p-lg-5 p-4 rounded-5 bg-surface border border-subtle mb-5 position-relative overflow-hidden text-center"
+        style="background: radial-gradient(circle at 50% 20%, var(--accent-warm-tint) 0%, transparent 60%);">
+        <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-2">Editorial
+          Dispatch</span>
+        <h1 class="display-5 font-serif fw-bold mb-2 mx-auto" style="max-width: 800px;">Local Food Guides & Bakery
+          Stories</h1>
+        <p class="fs-5 text-secondary mb-0 mx-auto" style="max-width: 700px;">Immersive essays, curated neighborhood
+          trails, and artisan profiles penned by our local culinary scouts.</p>
       </div>
 
       <!-- Featured Story Card (Large) -->
@@ -118,91 +121,196 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-7">
             <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop" alt="72-layer butter croissants" class="w-100 h-100 object-fit-cover">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop"
+                alt="72-layer butter croissants" class="w-100 h-100 object-fit-cover">
             </div>
           </div>
           <div class="col-lg-5">
-            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-3">Cover Story</span>
+            <span class="badge bg-secondary text-terracotta py-1 px-3 rounded-pill fw-bold text-uppercase mb-3">Cover
+              Story</span>
             <h2 class="display-6 font-serif fw-bold mb-3">
-              <a href="guide-details.html?slug=the-best-croissants-to-try-this-week">The 7 Flakiest, Butteriest Croissants to Try This Week</a>
+              <a href="guide-details.html?slug=the-best-croissants-to-try-this-week">The 7 Flakiest, Butteriest
+                Croissants to Try This Week</a>
             </h2>
             <p class="text-secondary mb-4 leading-relaxed">
-              A butter-lover's pursuit of golden honeycomb interiors and shatteringly crisp pastry layers across Central City's top French patisseries.
+              A butter-lover's pursuit of golden honeycomb interiors and shatteringly crisp pastry layers across Central
+              City's top French patisseries.
             </p>
             <div class="d-flex align-items-center gap-3 mb-4">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Claire Vance" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+                alt="Claire Vance" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover;">
               <div>
                 <div class="fw-bold">Claire Vance</div>
                 <div class="small text-muted">Pastry Editor · 5 min read</div>
               </div>
             </div>
-            <a href="guide-details.html?slug=the-best-croissants-to-try-this-week" class="btn btn-primary-custom py-2 px-4">
+            <a href="guide-details.html?slug=the-best-croissants-to-try-this-week"
+              class="btn btn-primary-custom py-2 px-4">
               Read Complete Guide &rarr;
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Guides Grid -->
-      <div class="row g-4">
+      <!-- Guides Grid (6 Rich Editorial Cards) -->
+      <div class="row g-4 guides-grid">
+        <!-- Card 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="5 Dessert Places Worth the Detour" class="guide-card-img">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop"
+                alt="5 Dessert Places Worth the Detour" class="guide-card-img">
             </div>
             <div class="guide-card-body">
               <span class="guide-meta">Dessert Trails · 7 min read</span>
-              <h3 class="guide-title"><a href="guide-details.html?slug=5-dessert-places-worth-the-detour">5 Hidden Dessert Destinations Worth the Detour</a></h3>
-              <p class="guide-excerpt">From nocturnal chocolate salons to waterfront molecular dessert labs with stunning harbor views.</p>
+              <h3 class="guide-title"><a href="guide-details.html?slug=5-dessert-places-worth-the-detour">5 Hidden
+                  Dessert Destinations Worth the Detour</a></h3>
+              <p class="guide-excerpt">From nocturnal chocolate salons to waterfront molecular dessert labs with
+                stunning harbor views.</p>
               <div class="guide-author-row">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Henri Delaunay" class="guide-author-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                  alt="Henri Delaunay" class="guide-author-avatar">
                 <div class="guide-author-info">
                   <span class="guide-author-name">Henri Delaunay</span>
                   <span>September 28, 2026</span>
                 </div>
-                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="dessert-detours-guide"><i class="bi bi-bookmark"></i></button>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="dessert-detours-guide"><i
+                    class="bi bi-bookmark"></i></button>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Card 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Where to Find Beautiful Celebration Cakes" class="guide-card-img">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop"
+                alt="Where to Find Beautiful Celebration Cakes" class="guide-card-img">
             </div>
             <div class="guide-card-body">
               <span class="guide-meta">Celebration Cakes · 6 min read</span>
-              <h3 class="guide-title"><a href="guide-details.html?slug=where-to-find-beautiful-celebration-cakes">Where to Find Show-Stopping Celebration Cakes</a></h3>
-              <p class="guide-excerpt">Artisanal studios redefining custom birthday tiers, Basque cheesecakes, and botanical wedding creations.</p>
+              <h3 class="guide-title"><a href="guide-details.html?slug=where-to-find-beautiful-celebration-cakes">Where
+                  to Find Show-Stopping Celebration Cakes</a></h3>
+              <p class="guide-excerpt">Artisanal studios redefining custom birthday tiers, Basque cheesecakes, and
+                botanical wedding creations.</p>
               <div class="guide-author-row">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" alt="Sonia Patel" class="guide-author-avatar">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop"
+                  alt="Sonia Patel" class="guide-author-avatar">
                 <div class="guide-author-info">
                   <span class="guide-author-name">Sonia Patel</span>
                   <span>September 20, 2026</span>
                 </div>
-                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="celebration-cakes-guide"><i class="bi bi-bookmark"></i></button>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="celebration-cakes-guide"><i
+                    class="bi bi-bookmark"></i></button>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Card 3 -->
         <div class="col-md-6 col-lg-4">
           <div class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=800&auto=format&fit=crop" alt="The Sourdough Revival" class="guide-card-img">
+              <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=800&auto=format&fit=crop"
+                alt="The Sourdough Revival" class="guide-card-img">
             </div>
             <div class="guide-card-body">
               <span class="guide-meta">Behind the Bake · 4 min read</span>
-              <h3 class="guide-title"><a href="guide-details.html?slug=the-best-croissants-to-try-this-week">The Ancient Grain & Sourdough Revival</a></h3>
-              <p class="guide-excerpt">Why local bakers are milling heritage Red Fife wheat on stone mills to bring back deep crusty flavor.</p>
+              <h3 class="guide-title"><a href="guide-details.html?slug=the-best-croissants-to-try-this-week">The Ancient
+                  bakers Grain & Sourdough Revival</a></h3>
+              <p class="guide-excerpt">Why local bakers are milling heritage Red Fife wheat on stone mills to bring back
+                deep crusty flavor.</p>
               <div class="guide-author-row">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="Samuel Ward" class="guide-author-avatar">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+                  alt="Samuel Ward" class="guide-author-avatar">
                 <div class="guide-author-info">
                   <span class="guide-author-name">Samuel Ward</span>
                   <span>September 14, 2026</span>
                 </div>
-                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="sourdough-revival-guide"><i class="bi bi-bookmark"></i></button>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="sourdough-revival-guide"><i
+                    class="bi bi-bookmark"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (New) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=800&auto=format&fit=crop"
+                alt="The Chocolatier's Craft" class="guide-card-img">
+            </div>
+            <div class="guide-card-body">
+              <span class="guide-meta">Artisan Chocolate · 5 min read</span>
+              <h3 class="guide-title"><a href="guide-details.html?slug=5-dessert-places-worth-the-detour">The
+                  Chocolatier’s Craft: Bean-to-Bar Micro-Batches</a></h3>
+              <p class="guide-excerpt">Exploring single-origin Ecuadorian cacao, slow stone-ground nib infusions, and
+                handcrafted dark praline bonbons.</p>
+              <div class="guide-author-row">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                  alt="Elena Rostova" class="guide-author-avatar">
+                <div class="guide-author-info">
+                  <span class="guide-author-name">Elena Rostova</span>
+                  <span>October 02, 2026</span>
+                </div>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="chocolatiers-craft-guide"><i
+                    class="bi bi-bookmark"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 (New) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+                alt="Nordic Fika Trails" class="guide-card-img">
+            </div>
+            <div class="guide-card-body">
+              <span class="guide-meta">Coffee & Buns · 6 min read</span>
+              <h3 class="guide-title"><a href="guide-details.html?slug=5-dessert-places-worth-the-detour">Nordic Fika
+                  Trails: Cardamom Knots & Pour-Over Rituals</a></h3>
+              <p class="guide-excerpt">The cultural art of slowing down for warm, pearl-sugared Swedish cardamom twists
+                and clean light-roast brews.</p>
+              <div class="guide-author-row">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop"
+                  alt="Magnus Lindqvist" class="guide-author-avatar">
+                <div class="guide-author-info">
+                  <span class="guide-author-name">Magnus Lindqvist</span>
+                  <span>September 25, 2026</span>
+                </div>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="nordic-fika-guide"><i
+                    class="bi bi-bookmark"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 (New) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop"
+                alt="Mastering the Mirror Glaze" class="guide-card-img">
+            </div>
+            <div class="guide-card-body">
+              <span class="guide-meta">Pastry Masterclass · 8 min read</span>
+              <h3 class="guide-title"><a href="guide-details.html?slug=the-best-croissants-to-try-this-week">Mastering
+                  the Mirror Glaze: Haute Patisserie Entremets</a></h3>
+              <p class="guide-excerpt">Inside the high-precision world of multi-layered French entremets, velvet cocoa
+                spray, and exotic fruit crémeux.</p>
+              <div class="guide-author-row">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+                  alt="Claire Vance" class="guide-author-avatar">
+                <div class="guide-author-info">
+                  <span class="guide-author-name">Claire Vance</span>
+                  <span>September 18, 2026</span>
+                </div>
+                <button class="btn btn-sm text-muted ms-auto p-0" data-save-guide="mirror-glaze-guide"><i
+                    class="bi bi-bookmark"></i></button>
               </div>
             </div>
           </div>
@@ -211,43 +319,99 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
+        <!-- Col 1: Brand & Tagline -->
         <div class="col-lg-4 col-md-6">
-          <a class="navbar-brand-custom" href="index.html">
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
             <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
-            <span>CRUMB & TABLE</span>
+            <div>
+              <span>CRUMB & TABLE</span>
+              <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+            </div>
           </a>
-          <p class="footer-brand-text">“Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.</p>
+          <p class="footer-brand-text">
+            “Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert
+            lounges, and confectionery craft.
+          </p>
+
+          <!-- Newsletter Form -->
+          <form class="newsletter-form mt-3" style="max-width: 320px;">
+            <div class="input-group">
+              <input type="email" class="form-control rounded-start-pill border-subtle"
+                placeholder="Your email dispatch..." required aria-label="Newsletter email">
+              <button class="btn btn-primary-custom rounded-end-pill px-3" type="submit"
+                aria-label="Subscribe to newsletter">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <div class="form-text small text-muted mt-1">Weekly bakery trails. No spam.</div>
+          </form>
         </div>
+
+        <!-- Col 2: Discover -->
         <div class="col-lg-2 col-md-6 col-6">
           <h4 class="footer-heading">Discover</h4>
           <ul class="footer-links">
-            <li><a href="discover.html">All Places</a></li>
             <li><a href="category-details.html?category=bakeries">Bakeries</a></li>
             <li><a href="category-details.html?category=patisseries">Patisseries</a></li>
+            <li><a href="category-details.html?category=cake-shops">Cake Shops</a></li>
+            <li><a href="category-details.html?category=dessert-shops">Dessert Shops</a></li>
+            <li><a href="category-details.html?category=chocolatiers">Chocolatiers</a></li>
+            <li><a href="category-details.html?category=artisan-bread">Artisan Bread</a></li>
           </ul>
         </div>
+
+        <!-- Col 3: Explore -->
         <div class="col-lg-2 col-md-6 col-6">
           <h4 class="footer-heading">Explore</h4>
           <ul class="footer-links">
-            <li><a href="map.html">Map</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="guides.html">Food Guides</a></li>
+            <li><a href="map.html">Local Map</a></li>
+            <li><a href="discover.html?filter=trending">Trending Places</a></li>
+            <li><a href="menu.html">Menu Explorer</a></li>
+            <li><a href="guides.html">Editorial Guides</a></li>
+            <li><a href="saved.html">Saved Places</a></li>
+            <li><a href="booking.html">Reserve a Table</a></li>
           </ul>
         </div>
+
+        <!-- Col 4: Company -->
         <div class="col-lg-4 col-md-6">
           <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+          <ul class="footer-links mb-3">
+            <li><a href="about.html">About Crumb & Table</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+            <li><a href="contact.html#list-venue">List Your Bakery / Place</a></li>
+            <li><a href="about.html#editorial-standards">Editorial Standards</a></li>
+            <li><a href="about.html#faqs">Frequently Asked Questions</a></li>
           </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <span class="small text-muted">City:</span>
+            <select class="form-select form-select-sm border-subtle w-auto rounded-pill" aria-label="Select City">
+              <option selected>Central City</option>
+              <option>Arts Quarter</option>
+              <option>Old Foundry</option>
+              <option>Golden Triangle</option>
+              <option>Harborfront</option>
+            </select>
+          </div>
         </div>
       </div>
+
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <div>&copy; 2026 Crumb & Table Discovery Platform. All rights reserved.</div>
+        <div>
+          &copy; 2026 Crumb & Table Discovery Platform. All rights reserved. Fictional local dining discovery brand.
+        </div>
+        <div class="social-icons-row">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
       </div>
     </div>
   </footer>
@@ -257,7 +421,8 @@
     <div class="search-modal-dialog">
       <div class="search-modal-header">
         <i class="bi bi-search"></i>
-        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..." aria-label="Search">
+        <input type="text" class="search-modal-input" placeholder="Search bakeries, croissants, desserts..."
+          aria-label="Search">
         <button type="button" class="btn-close ms-2" data-close-search></button>
       </div>
       <div class="search-modal-results"></div>
@@ -272,4 +437,5 @@
   <script src="assets/js/search.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

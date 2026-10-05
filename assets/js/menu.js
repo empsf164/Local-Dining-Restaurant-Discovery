@@ -58,7 +58,7 @@
     container.innerHTML = items.map(item => `
       <div class="col-md-6 col-lg-4 mb-4 fade-in-up">
         <div class="menu-item-card">
-          <img src="${item.image}" alt="${item.name}" class="menu-item-img" loading="lazy">
+          <img src="${item.image}" alt="${item.name}" class="menu-item-img" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=800&auto=format&fit=crop';">
           <div class="menu-item-info">
             <div class="menu-item-header">
               <h4 class="menu-item-title">${item.name}</h4>

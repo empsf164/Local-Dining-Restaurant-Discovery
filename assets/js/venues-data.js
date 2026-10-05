@@ -249,10 +249,10 @@ const VENUES_DATA = [
     email: "custom@thevelvetcrumb.example.com",
     images: {
       cover: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop",
-      hero: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=1400&auto=format&fit=crop",
+      hero: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=1400&auto=format&fit=crop",
       gallery: [
         "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop"
       ]
@@ -750,7 +750,7 @@ const MENU_ITEMS_DATA = [
     numericPrice: 8.0,
     isPopular: true,
     dietary: ["Vegetarian", "Gluten-Free"],
-    image: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=800&auto=format&fit=crop",
     description: "Ultra creamy custard center, deeply caramelized charred top, finished with Maldon sea salt."
   },
   {

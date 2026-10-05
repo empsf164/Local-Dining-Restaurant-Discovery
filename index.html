@@ -12,6 +12,9 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop">
 
+  <!-- Favicon matching Navbar Brand Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
   <!-- Bootstrap 5 & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -40,14 +43,13 @@
           </div>
         </a>
 
-        <!-- Mobile Controls (Search + Theme + Hamburger) -->
+        <!-- Mobile Controls (Saved Icon + Sign Up + Hamburger) -->
         <div class="d-flex align-items-center gap-2 d-xl-none ms-auto">
-          <button class="btn btn-theme-toggle" type="button" aria-label="Toggle Dark Mode">
-            <i class="bi bi-moon-stars-fill"></i>
-          </button>
-          <button class="btn-nav-search" data-open-search type="button" aria-label="Search">
-            <i class="bi bi-search"></i>
-          </button>
+          <a href="saved.html" class="btn-nav-icon position-relative" aria-label="Saved Places" title="Saved Places">
+            <i class="bi bi-bookmark-heart"></i>
+            <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
+          </a>
+          <a href="signup.html" class="btn btn-sm btn-primary-custom py-1 px-2 small">Sign Up</a>
           <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
             <i class="bi bi-list fs-2 text-primary"></i>
           </button>
@@ -59,86 +61,31 @@
             <li class="nav-item">
               <a class="nav-link-custom active" href="index.html">Home</a>
             </li>
-
-            <!-- Discover Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link-custom dropdown-toggle" href="discover.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Discover <i class="bi bi-chevron-down dropdown-arrow"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=trending"><i class="bi bi-fire"></i> Trending Nearby</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=new"><i class="bi bi-sparkles"></i> New Places</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=rated"><i class="bi bi-star-fill"></i> Highly Rated</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=editors"><i class="bi bi-award-fill"></i> Editor's Picks</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=open"><i class="bi bi-clock-fill"></i> Open Now</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=newly-listed"><i class="bi bi-pin-map-fill"></i> Newly Listed</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="discover.html?filter=popular"><i class="bi bi-graph-up-arrow"></i> Popular This Week</a></li>
-              </ul>
-            </li>
-
-            <!-- Map -->
             <li class="nav-item">
-              <a class="nav-link-custom" href="map.html">Map</a>
+              <a class="nav-link-custom" href="discover.html">Discover</a>
             </li>
-
-            <!-- Categories Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link-custom dropdown-toggle" href="categories.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Categories <i class="bi bi-chevron-down dropdown-arrow"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=bakeries"><i class="bi bi-shop"></i> Bakeries</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=patisseries"><i class="bi bi-cup-hot"></i> Patisseries</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=cake-shops"><i class="bi bi-cake2"></i> Cake Shops</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=dessert-shops"><i class="bi bi-magic"></i> Dessert Shops</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=chocolatiers"><i class="bi bi-gem"></i> Chocolatiers</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=artisan-bread"><i class="bi bi-basket2"></i> Artisan Bread</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=coffee-bakery"><i class="bi bi-cup-straw"></i> Coffee & Bakery</a></li>
-                <li><a class="dropdown-item dropdown-item-custom" href="category-details.html?category=confectionery"><i class="bi bi-gift"></i> Confectionery</a></li>
-                <li><hr class="dropdown-divider my-1"></li>
-                <li><a class="dropdown-item dropdown-item-custom fw-bold text-terracotta" href="categories.html">View All Categories &rarr;</a></li>
-              </ul>
-            </li>
-
             <li class="nav-item">
               <a class="nav-link-custom" href="menu.html">Menu</a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link-custom" href="guides.html">Guides</a>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link-custom d-flex align-items-center gap-1" href="saved.html">
-                Saved <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
-              </a>
-            </li>
-
             <li class="nav-item">
               <a class="nav-link-custom" href="about.html">About</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link-custom" href="contact.html">Contact</a>
+            </li>
           </ul>
 
-          <!-- Right Action Items -->
+          <!-- Right Action Items (Saved Icon Button + Sign Up Button) -->
           <div class="d-flex align-items-center gap-3">
-            <button class="btn-nav-search" data-open-search type="button">
-              <i class="bi bi-search"></i>
-              <span>Search places...</span>
-              <span class="kbd-badge">/</span>
-            </button>
-
-            <button class="btn-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
-              <i class="bi bi-moon-stars-fill"></i>
-            </button>
-
-            <div class="auth-nav-container d-flex align-items-center gap-2">
-              <a href="login.html" class="nav-link-custom">Login</a>
-              <a href="signup.html" class="btn-secondary-custom py-2 px-3">Sign Up</a>
-            </div>
-
-            <a href="discover.html" class="btn-primary-custom text-nowrap">
-              <i class="bi bi-compass"></i> Explore Nearby
+            <a href="saved.html" class="btn-nav-icon position-relative" aria-label="Saved Places" title="Saved Places">
+              <i class="bi bi-bookmark-heart"></i>
+              <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none; font-size: 0.65rem;">0</span>
             </a>
+
+            <a href="signup.html" class="btn-primary-custom text-nowrap py-2 px-3">Sign Up</a>
           </div>
         </div>
       </div>
@@ -148,75 +95,25 @@
   <!-- ==================== MOBILE OFFCANVAS DRAWER ==================== -->
   <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title font-serif fs-5 fw-bold" id="mobileMenuLabel">CRUMB & TABLE</h5>
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
+        <div>
+          <span>CRUMB & TABLE</span>
+          <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+        </div>
+      </a>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <!-- Search inside mobile -->
-      <div class="mb-4">
-        <button class="btn btn-secondary-custom w-100 justify-content-between" data-open-search data-bs-dismiss="offcanvas">
-          <span><i class="bi bi-search me-2"></i> Search discoveries...</span>
-          <span class="kbd-badge">/</span>
-        </button>
-      </div>
-
-      <!-- Navigation Accordion -->
       <div class="mobile-nav-group-title">Navigation</div>
       <a href="index.html" class="mobile-nav-link active">Home</a>
-
-      <div>
-        <button class="mobile-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mobileDiscoverCollapse" aria-expanded="false">
-          <span>Discover</span> <i class="bi bi-chevron-down"></i>
-        </button>
-        <div class="collapse mobile-sub-menu" id="mobileDiscoverCollapse">
-          <a href="discover.html?filter=trending" class="mobile-sub-link">Trending Nearby</a>
-          <a href="discover.html?filter=new" class="mobile-sub-link">New Places</a>
-          <a href="discover.html?filter=rated" class="mobile-sub-link">Highly Rated</a>
-          <a href="discover.html?filter=editors" class="mobile-sub-link">Editor's Picks</a>
-          <a href="discover.html?filter=open" class="mobile-sub-link">Open Now</a>
-          <a href="discover.html" class="mobile-sub-link fw-bold text-terracotta">All Discoveries &rarr;</a>
-        </div>
-      </div>
-
-      <a href="map.html" class="mobile-nav-link">Local Map Explorer</a>
-
-      <div>
-        <button class="mobile-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategoriesCollapse" aria-expanded="false">
-          <span>Categories</span> <i class="bi bi-chevron-down"></i>
-        </button>
-        <div class="collapse mobile-sub-menu" id="mobileCategoriesCollapse">
-          <a href="category-details.html?category=bakeries" class="mobile-sub-link">Bakeries</a>
-          <a href="category-details.html?category=patisseries" class="mobile-sub-link">Patisseries</a>
-          <a href="category-details.html?category=cake-shops" class="mobile-sub-link">Cake Shops</a>
-          <a href="category-details.html?category=dessert-shops" class="mobile-sub-link">Dessert Shops</a>
-          <a href="category-details.html?category=chocolatiers" class="mobile-sub-link">Chocolatiers</a>
-          <a href="category-details.html?category=artisan-bread" class="mobile-sub-link">Artisan Bread</a>
-          <a href="category-details.html?category=coffee-bakery" class="mobile-sub-link">Coffee & Bakery</a>
-          <a href="categories.html" class="mobile-sub-link fw-bold text-terracotta">All Categories &rarr;</a>
-        </div>
-      </div>
-
-      <a href="menu.html" class="mobile-nav-link">Menu Explorer</a>
-      <a href="guides.html" class="mobile-nav-link">Food Guides</a>
-      <a href="saved.html" class="mobile-nav-link d-flex justify-content-between align-items-center">
-        <span>Saved Places</span>
-        <span class="badge bg-terracotta rounded-pill saved-count-badge" style="display:none;">0</span>
-      </a>
-      <a href="about.html" class="mobile-nav-link">About Us</a>
-      <a href="contact.html" class="mobile-nav-link">Contact & List Bakery</a>
-
-      <hr class="my-4 border-subtle">
-
-      <!-- Auth actions inside drawer -->
-      <div class="mobile-auth-container">
-        <!-- Rendered by auth.js -->
-      </div>
-
-      <div class="mt-3">
-        <a href="discover.html" class="btn btn-primary-custom w-100 py-3">
-          <i class="bi bi-compass"></i> Explore Nearby
-        </a>
-      </div>
+      <a href="discover.html" class="mobile-nav-link">Discover</a>
+      <a href="menu.html" class="mobile-nav-link">Menu</a>
+      <a href="guides.html" class="mobile-nav-link">Guides</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="saved.html" class="mobile-nav-link">Saved Places</a>
+      <a href="signup.html" class="mobile-nav-link text-terracotta fw-bold">Sign Up</a>
     </div>
   </div>
 
@@ -509,7 +406,7 @@
           </a>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 guides-grid">
           <div class="col-md-4">
             <div class="guide-card">
               <div class="guide-card-img-wrap">
@@ -852,9 +749,12 @@
       <div class="row g-4">
         <!-- Col 1: Brand & Tagline -->
         <div class="col-lg-4 col-md-6">
-          <a class="navbar-brand-custom" href="index.html">
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
             <div class="brand-icon"><i class="bi bi-cup-hot-fill"></i></div>
-            <span>CRUMB & TABLE</span>
+            <div>
+              <span>CRUMB & TABLE</span>
+              <span class="brand-tagline-subtle">Bakery & Confectionery Discovery</span>
+            </div>
           </a>
           <p class="footer-brand-text">
             “Your guide to memorable local food.” Specializing in artisanal bakeries, French patisseries, dessert lounges, and confectionery craft.
