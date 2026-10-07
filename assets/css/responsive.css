@@ -1,6 +1,6 @@
 /* ==========================================================================
    CRUMB & TABLE - RESPONSIVE STYLES
-   Breakpoints: 320px, 375px, 576px, 768px, 992px, 1200px, 1400px+
+   Breakpoints: 320px, 375px, 576px, 768px, 992px, 1024px, 1200px, 1400px+
    ========================================================================== */
 
 /* --- Mobile Specific Refinements (< 768px) --- */
@@ -104,6 +104,74 @@
     box-shadow: var(--shadow-lg);
   }
 
+  /* Equal button size in Home page CTA section before footer on mobile */
+  .final-cta-buttons,
+  .cta-buttons-wrapper,
+  .home-bottom-cta-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .final-cta-buttons .btn,
+  .cta-buttons-wrapper .btn,
+  .home-bottom-cta-buttons .btn {
+    width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.85rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* Mobile offcanvas drawer & close button alignment */
+  .mobile-offcanvas {
+    width: min(320px, 86vw) !important;
+    max-width: 86vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header {
+    padding: 0.85rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header .navbar-brand-custom {
+    font-size: 1.05rem !important;
+    gap: 0.45rem !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header .brand-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header .brand-tagline-subtle {
+    font-size: 0.55rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header .btn-close,
+  .btn-close {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0.4rem !important;
+    box-sizing: content-box !important;
+  }
+
   /* Footer adjustments */
   .site-footer {
     padding: 3rem 0 1.5rem;
@@ -118,6 +186,19 @@
 
 /* --- Small Phones (< 380px: 320px - 375px) --- */
 @media (max-width: 380px) {
+  .mobile-offcanvas {
+    width: min(290px, 88vw) !important;
+    max-width: 88vw !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header {
+    padding: 0.75rem 0.75rem !important;
+  }
+
+  .mobile-offcanvas .offcanvas-header .navbar-brand-custom {
+    font-size: 0.95rem !important;
+  }
+
   .navbar-brand-custom {
     font-size: 1.25rem;
   }
@@ -142,6 +223,30 @@
 
 /* --- Tablet / Medium & 1024px Devices (768px to 1024.98px) --- */
 @media (min-width: 768px) and (max-width: 1024.98px) {
+  /* Ensure clean container alignment & zero asymmetrical whitespace on right */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .container-fluid {
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+  }
+
+  /* Reset inline max-widths on containers to prevent horizontal cutoffs */
+  .container[style*="max-width"] {
+    max-width: 100% !important;
+  }
+
   .hero-search-wrapper {
     max-width: 100%;
   }
@@ -152,11 +257,11 @@
 
   /* --------------------------------------------------------------------------
      All Sections / All Pages: Align 2 Cards per Row (50% Width Each)
+     (Excluding Menu Page which is 1 card per row)
      -------------------------------------------------------------------------- */
   .row:has(> [class*="col-"] > .venue-card),
   .row:has(> [class*="col-"] > .guide-card),
   .row:has(> [class*="col-"] > .category-card),
-  .row:has(> [class*="col-"] > .menu-item-card),
   .row:has(> [class*="col-"] > .pillar-card),
   .row:has(> [class*="col-"] > .dish-card),
   .row:has(> [class*="col-"] > .gallery-card),
@@ -168,7 +273,6 @@
   .about-pillars-row,
   #homeTrendingGrid,
   #discoverVenueGrid,
-  #menuItemsGrid,
   #categoriesListGrid,
   #categoryVenuesGrid,
   #venueSignatureDishes,
@@ -188,7 +292,6 @@
   .row:has(> [class*="col-"] > .venue-card) > [class*="col-"],
   .row:has(> [class*="col-"] > .guide-card) > [class*="col-"],
   .row:has(> [class*="col-"] > .category-card) > [class*="col-"],
-  .row:has(> [class*="col-"] > .menu-item-card) > [class*="col-"],
   .row:has(> [class*="col-"] > .pillar-card) > [class*="col-"],
   .row:has(> [class*="col-"] > .dish-card) > [class*="col-"],
   .row:has(> [class*="col-"] > .gallery-card) > [class*="col-"],
@@ -200,7 +303,6 @@
   .about-pillars-row > [class*="col-"],
   #homeTrendingGrid > [class*="col-"],
   #discoverVenueGrid > [class*="col-"],
-  #menuItemsGrid > [class*="col-"],
   #categoriesListGrid > [class*="col-"],
   #categoryVenuesGrid > [class*="col-"],
   #venueSignatureDishes > [class*="col-"],
@@ -224,7 +326,6 @@
   .row:has(> [class*="col-"] > .venue-card) > [class*="col-"]:last-child:nth-child(odd),
   .row:has(> [class*="col-"] > .guide-card) > [class*="col-"]:last-child:nth-child(odd),
   .row:has(> [class*="col-"] > .category-card) > [class*="col-"]:last-child:nth-child(odd),
-  .row:has(> [class*="col-"] > .menu-item-card) > [class*="col-"]:last-child:nth-child(odd),
   .row:has(> [class*="col-"] > .pillar-card) > [class*="col-"]:last-child:nth-child(odd),
   .row:has(> [class*="col-"] > .dish-card) > [class*="col-"]:last-child:nth-child(odd),
   .row:has(> [class*="col-"] > .gallery-card) > [class*="col-"]:last-child:nth-child(odd),
@@ -236,14 +337,12 @@
   .about-pillars-row > [class*="col-"]:last-child:nth-child(odd),
   #homeTrendingGrid > [class*="col-"]:last-child:nth-child(odd),
   #discoverVenueGrid > [class*="col-"]:last-child:nth-child(odd),
-  #menuItemsGrid > [class*="col-"]:last-child:nth-child(odd),
   #categoriesListGrid > [class*="col-"]:last-child:nth-child(odd),
   #categoryVenuesGrid > [class*="col-"]:last-child:nth-child(odd),
   #venueSignatureDishes > [class*="col-"]:last-child:nth-child(odd),
   #venueFullGallery > [class*="col-"]:last-child:nth-child(odd),
   #venueSimilarList > [class*="col-"]:last-child:nth-child(odd),
   #savedPlacesGrid > [class*="col-"]:last-child:nth-child(odd),
-  #savedMenuGrid > [class*="col-"]:last-child:nth-child(odd),
   #savedGuidesGrid > [class*="col-"]:last-child:nth-child(odd),
   #relatedGuidesGrid > [class*="col-"]:last-child:nth-child(odd),
   #popular-pane .row > [class*="col-"]:last-child:nth-child(odd),
@@ -251,6 +350,99 @@
   #how-discovery-works .row > [class*="col-"]:last-child:nth-child(odd) {
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     Menu Page in Tab and 1024px: Align 1 Card per Row (100% Width)
+     -------------------------------------------------------------------------- */
+  #menuItemsGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  #menuItemsGrid > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 0 !important;
+  }
+
+  #menuItemsGrid .menu-item-card {
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 1.25rem 1.5rem !important;
+    gap: 1.5rem !important;
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  #menuItemsGrid .menu-item-img {
+    width: 150px !important;
+    height: 125px !important;
+    border-radius: var(--radius-sm) !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+
+  #menuItemsGrid .menu-item-info {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  #menuItemsGrid .menu-item-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #menuItemsGrid .menu-item-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Saved Menu Items Grid (Tab Alignment) */
+  #savedMenuGrid > [class*="col-"] {
+    display: flex !important;
+    align-items: stretch !important;
+  }
+
+  #savedMenuGrid .menu-item-card {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+  }
+
+  #savedMenuGrid .menu-item-info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     Footer 2x2 Grid Alignment at 1024px and Tablet
+     -------------------------------------------------------------------------- */
+  .site-footer .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .site-footer .row > [class*="col-"] {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    margin-bottom: 2rem !important;
   }
 }
 
@@ -270,3 +462,4 @@
     max-width: 1440px;
   }
 }
+

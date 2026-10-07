@@ -300,16 +300,56 @@
   color: var(--text-primary);
   border-left: 1px solid var(--border-medium);
   width: 320px;
-  max-width: 85vw;
+  max-width: 86vw;
+  box-sizing: border-box;
 }
 
 .mobile-offcanvas .offcanvas-header {
   border-bottom: 1px solid var(--border-subtle);
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 64px;
+  box-sizing: border-box;
+}
+
+.mobile-offcanvas .offcanvas-header .navbar-brand-custom {
+  font-size: 1.15rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.mobile-offcanvas .offcanvas-header .navbar-brand-custom span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-offcanvas .offcanvas-header .brand-tagline-subtle {
+  font-size: 0.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-offcanvas .offcanvas-header .btn-close {
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0.4rem !important;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.mobile-offcanvas .offcanvas-header .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 .mobile-offcanvas .offcanvas-body {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
   overflow-y: auto;
 }
 
@@ -1135,3 +1175,90 @@
   color: #FFF;
   border-color: var(--accent-terracotta);
 }
+
+/* --------------------------------------------------------------------------
+   13. BACK TO TOP BUTTON
+   -------------------------------------------------------------------------- */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--accent-terracotta);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal), background-color var(--transition-fast), box-shadow var(--transition-fast), visibility var(--transition-normal);
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: var(--accent-terracotta-hover);
+  color: #FFFFFF !important;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl), 0 0 18px var(--accent-warm-tint);
+}
+
+@media (max-width: 767.98px) {
+  .back-to-top-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. AUTH LINKS & INPUT ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+.auth-link {
+  color: var(--accent-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  cursor: pointer;
+}
+
+.auth-link:hover {
+  color: var(--accent-terracotta-hover) !important;
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.toggle-password-btn {
+  border-left: none;
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.toggle-password-btn:hover,
+.toggle-password-btn:focus {
+  background-color: var(--bg-secondary);
+  color: var(--accent-terracotta);
+}
+
+/* Ensure navbar menus are centered */
+.navbar-nav.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+

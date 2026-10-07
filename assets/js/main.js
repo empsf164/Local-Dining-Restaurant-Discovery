@@ -73,4 +73,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 7. Back to Top Button Controller
+  let backToTopBtn = document.getElementById("backToTopBtn");
+  if (!backToTopBtn) {
+    backToTopBtn = document.createElement("button");
+    backToTopBtn.id = "backToTopBtn";
+    backToTopBtn.className = "back-to-top-btn";
+    backToTopBtn.setAttribute("aria-label", "Back to top");
+    backToTopBtn.setAttribute("title", "Back to top");
+    backToTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+    document.body.appendChild(backToTopBtn);
+  }
+
+  const handleScrollTop = () => {
+    if (window.scrollY > 280) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  };
+
+  window.addEventListener("scroll", handleScrollTop, { passive: true });
+  handleScrollTop();
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
 });
+

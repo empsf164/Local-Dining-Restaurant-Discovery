@@ -7,23 +7,26 @@
     const categories = Array.from(document.querySelectorAll('input[name="categoryFilter"]:checked')).map(el => el.value);
     const minRating = document.querySelector('input[name="ratingFilter"]:checked')?.value || 0;
     const priceLevels = Array.from(document.querySelectorAll('input[name="priceFilter"]:checked')).map(el => parseInt(el.value));
-    const openNowOnly = document.getElementById("filterOpenNow")?.checked || false;
+    const openNowOnly = (document.getElementById("filterOpenNow")?.checked || document.getElementById("filterOpenNowMobile")?.checked) || false;
     const dietary = Array.from(document.querySelectorAll('input[name="dietaryFilter"]:checked')).map(el => el.value);
     const amenities = Array.from(document.querySelectorAll('input[name="amenitiesFilter"]:checked')).map(el => el.value);
     const sortBy = document.getElementById("discoverSortSelect")?.value || "recommended";
-    const searchQuery = document.getElementById("discoverSearchInput")?.value.toLowerCase().trim() || "";
+    const searchDesktop = document.getElementById("discoverSearchInput")?.value || "";
+    const searchMobile = document.getElementById("discoverSearchInputMobile")?.value || "";
+    const searchQuery = (searchDesktop || searchMobile).toLowerCase().trim();
 
     return {
-      categories,
+      categories: [...new Set(categories)],
       minRating: parseFloat(minRating),
-      priceLevels,
+      priceLevels: [...new Set(priceLevels)],
       openNowOnly,
-      dietary,
-      amenities,
+      dietary: [...new Set(dietary)],
+      amenities: [...new Set(amenities)],
       sortBy,
       searchQuery
     };
   }
+
 
   function filterVenues(venues, filters) {
     return venues.filter(v => {
@@ -159,13 +162,19 @@
   function resetAllFilters() {
     document.querySelectorAll('input[name="categoryFilter"]').forEach(el => el.checked = false);
     document.querySelectorAll('input[name="ratingFilter"]').forEach(el => el.checked = false);
+    // Set 0 rating as checked
+    document.querySelectorAll('input[name="ratingFilter"][value="0"]').forEach(el => el.checked = true);
     document.querySelectorAll('input[name="priceFilter"]').forEach(el => el.checked = false);
     document.querySelectorAll('input[name="dietaryFilter"]').forEach(el => el.checked = false);
     document.querySelectorAll('input[name="amenitiesFilter"]').forEach(el => el.checked = false);
     const openNow = document.getElementById("filterOpenNow");
     if (openNow) openNow.checked = false;
+    const openNowMobile = document.getElementById("filterOpenNowMobile");
+    if (openNowMobile) openNowMobile.checked = false;
     const search = document.getElementById("discoverSearchInput");
     if (search) search.value = "";
+    const searchMobile = document.getElementById("discoverSearchInputMobile");
+    if (searchMobile) searchMobile.value = "";
     const sort = document.getElementById("discoverSortSelect");
     if (sort) sort.value = "recommended";
 
@@ -181,8 +190,9 @@
       const urlParams = new URLSearchParams(window.location.search);
       const catParam = urlParams.get("category");
       if (catParam) {
-        const checkbox = document.querySelector(`input[name="categoryFilter"][value="${catParam}"]`);
-        if (checkbox) checkbox.checked = true;
+        document.querySelectorAll(`input[name="categoryFilter"][value="${catParam}"]`).forEach(checkbox => {
+          checkbox.checked = true;
+        });
       }
 
       applyAndRefreshFilters();
@@ -198,10 +208,17 @@
       const searchInput = document.getElementById("discoverSearchInput");
       if (searchInput) searchInput.addEventListener("input", applyAndRefreshFilters);
 
+      const searchInputMobile = document.getElementById("discoverSearchInputMobile");
+      if (searchInputMobile) searchInputMobile.addEventListener("input", applyAndRefreshFilters);
+
       const resetBtn = document.getElementById("clearAllFiltersBtn");
       if (resetBtn) resetBtn.addEventListener("click", resetAllFilters);
+
+      const mobileResetBtn = document.getElementById("mobileResetFiltersBtn");
+      if (mobileResetBtn) mobileResetBtn.addEventListener("click", resetAllFilters);
     }
   });
+
 
   window.FiltersEngine = {
     getFilterState,
